@@ -1,8 +1,8 @@
-import React from 'react';
-import {View} from 'react-native/types';
+import React from 'react'
+import { View } from 'react-native'
 
 const Home = () => {
-  return <View />;
-};
+  return <View />
+}
 
-export default Home;
+export default Home
