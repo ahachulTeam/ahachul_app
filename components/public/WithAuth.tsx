@@ -1,9 +1,9 @@
 import { NavigationProp } from '@react-navigation/native'
 import { useLayoutEffect } from 'react'
 import { useRecoilState } from 'recoil'
-import WithoutAuthStack from '../../App/WithoutAuthStack'
 import { getAsyncData } from '../../lib/utils/async-storage-helper'
 import { tokenState } from '../../stores/global'
+import AuthStack from '../../App/AuthStack'
 
 interface WrappedProps {
   navigation: NavigationProp<any>
@@ -28,7 +28,7 @@ const WithAuth =
       getAsyncToken()
     }, [token])
 
-    return token ? <WrappedComponent {...props} /> : <WithoutAuthStack />
+    return token ? <WrappedComponent {...props} /> : <AuthStack />
   }
 
 export default WithAuth

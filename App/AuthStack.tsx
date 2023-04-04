@@ -4,7 +4,7 @@ import Signup from '../screens/Signup'
 
 const Stack = createStackNavigator()
 
-const WithoutAuthStack = () => {
+const AuthStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} />
@@ -13,4 +13,4 @@ const WithoutAuthStack = () => {
   )
 }
 
-export default WithoutAuthStack
+export default AuthStack
