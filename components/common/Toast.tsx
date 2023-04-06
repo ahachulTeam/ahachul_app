@@ -1,6 +1,7 @@
 import styled from '@emotion/native'
 import React from 'react'
 import CSText from './text'
+import { colors } from '../../App/config/globalStyle'
 
 interface ToastProps {
   text1?: string
@@ -33,7 +34,7 @@ const Wrapper = styled.View`
 
 const ToastText = styled(CSText)`
   font-size: 16px;
-  color: #00baf6;
+  color: ${colors.blue};
 
   padding: 0px 29px;
 `

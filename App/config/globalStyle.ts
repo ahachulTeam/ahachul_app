@@ -1,8 +1,10 @@
 import { Dimensions } from 'react-native'
 
 export const colors = {
-  black: '#000',
+  black: '#272727',
   white: '#fff',
+  gray: '#8b8b8b',
+  blue: '#00baf6',
 }
 
 export const fonts = {

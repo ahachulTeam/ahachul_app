@@ -8,6 +8,7 @@ import {
   isPopupModalVisibleState,
   popupModalPropsState,
 } from '../../stores/global'
+import { colors } from '../../App/config/globalStyle'
 
 const PopupModal = () => {
   const { hidePopupModal } = usePopupModal()
@@ -74,7 +75,7 @@ const Container = styled.View`
 
   padding: 16px 12px 12px 12px;
 
-  background-color: #fff;
+  background-color: ${colors.white};
   border-radius: 12px;
 
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.07);
@@ -87,7 +88,7 @@ const TextBox = styled.View`
 `
 
 const MainText = styled(CSText)`
-  color: #272727;
+  color: ${colors.black};
   font-weight: 700;
   font-size: 18px;
 
@@ -121,7 +122,7 @@ const Button = styled.TouchableOpacity`
 `
 
 const MainButtonText = styled(CSText)`
-  color: #00baf6;
+  color: ${colors.blue};
   font-size: 16px;
   font-weight: 500;
 `
