@@ -7,12 +7,14 @@ const RootStack = () => {
   const RootStack = createStackNavigator()
 
   return (
-    <NavigationContainer>
-      <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        <RootStack.Screen name="MainStack" component={MainStack} />
-        <RootStack.Screen name="AuthStack" component={AuthStack} />
-      </RootStack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <RootStack.Navigator screenOptions={{ headerShown: false }}>
+          <RootStack.Screen name="MainStack" component={MainStack} />
+          <RootStack.Screen name="AuthStack" component={AuthStack} />
+        </RootStack.Navigator>
+      </NavigationContainer>
+    </>
   )
 }
 

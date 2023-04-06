@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { getAsyncData } from '../../lib/utils/async-storage-helper'
 import { tokenState } from '../../stores/global'
-import AuthStack from '../../App/AuthStack'
+import AuthStack from '../../App/stacks/AuthStack'
 
 interface WrappedProps {
   navigation: NavigationProp<any>
