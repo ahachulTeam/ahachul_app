@@ -1,10 +1,8 @@
-/**
- * @format
- */
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Text } from 'react-native'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 import { RecoilRoot } from 'recoil'
+import CSToast from '../components/common/Toast'
 import RootStack from './stacks/RootStack'
 
 const App = () => {
@@ -18,6 +16,11 @@ const App = () => {
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <RootStack />
+        <Toast
+          config={{
+            ahachulToast: ({ text1 }) => <CSToast text1={text1} />,
+          }}
+        />
       </QueryClientProvider>
     </RecoilRoot>
   )
