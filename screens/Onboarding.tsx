@@ -1,10 +1,12 @@
 import styled from '@emotion/native'
 import React from 'react'
-import CSText from '../components/common/text'
-import OnboardingSection from '../components/onboarding/OnboardingSection'
 import { Source } from 'react-native-fast-image'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { colors } from '../App/config/globalStyle'
+import LoginBottomSheet from '../components/bottom-sheet/LoginBottomSheet'
+import CSText from '../components/common/text'
+import OnboardingSection from '../components/onboarding/OnboardingSection'
+import useBottomSheet from '../lib/hooks/useBottomSheet'
 
 interface SectionType {
   id: number
@@ -34,8 +36,11 @@ const SECTIONS: SectionType[] = [
 
 const Onboarding = () => {
   const { top: insetTop } = useSafeAreaInsets()
+  const { showBottomSheet } = useBottomSheet()
 
-  const handlePressLogin = () => {}
+  const handlePressLogin = () => {
+    showBottomSheet({ component: <LoginBottomSheet />, height: 326 })
+  }
 
   const handlePressSignUp = () => {}
 

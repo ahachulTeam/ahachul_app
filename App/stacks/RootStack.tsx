@@ -1,18 +1,24 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import MainStack from './MainStack'
-import AuthStack from './AuthStack'
 import { useRecoilValue } from 'recoil'
-import { isPopupModalVisibleState } from '../../stores/global'
+import BottomSheet from '../../components/common/BottomSheet'
 import PopupModal from '../../components/common/PopupModal'
+import { isBottomSheetVisibleState } from '../../stores/bottom-sheet'
+import { isPopupModalVisibleState } from '../../stores/global'
+import AuthStack from './AuthStack'
+import MainStack from './MainStack'
 
 const RootStack = () => {
   const RootStack = createStackNavigator()
-  const isPopupModalVisible = useRecoilValue(isPopupModalVisibleState)
+  const isPopupModalVisible = useRecoilValue<boolean>(isPopupModalVisibleState)
+  const isBottomSheetVisible = useRecoilValue<boolean>(
+    isBottomSheetVisibleState,
+  )
 
   return (
     <>
       {isPopupModalVisible && <PopupModal />}
+      {isBottomSheetVisible && <BottomSheet />}
 
       <NavigationContainer>
         <RootStack.Navigator screenOptions={{ headerShown: false }}>

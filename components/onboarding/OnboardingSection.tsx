@@ -1,8 +1,8 @@
 import styled from '@emotion/native'
 import React from 'react'
-import CSText from '../common/text'
 import FastImage, { Source } from 'react-native-fast-image'
 import { colors, screenWidth } from '../../App/config/globalStyle'
+import CSText from '../common/text'
 
 interface OnboardingSectionProps {
   title: string

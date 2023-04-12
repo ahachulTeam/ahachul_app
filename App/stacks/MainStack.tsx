@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
-import TabStack from './TabStack'
 import WithAuth from '../../components/public/WithAuth'
+import TabStack from './TabStack'
 
 const Stack = createStackNavigator()
 
