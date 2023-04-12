@@ -1,5 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import TabStack from './TabStack'
+import WithAuth from '../../components/public/WithAuth'
 
 const Stack = createStackNavigator()
 
@@ -15,4 +16,4 @@ const MainStack = () => {
   )
 }
 
-export default MainStack
+export default WithAuth(MainStack)
