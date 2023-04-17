@@ -1,47 +1,43 @@
 import styled from '@emotion/native'
 import React from 'react'
-import { Platform } from 'react-native'
-import { colors } from '../../App/config/globalStyle'
-import useBottomSheet from '../../lib/hooks/useBottomSheet'
+import { colors, images } from '../../App/config/globalStyle'
 import CSText from '../common/text'
+import { WithLocalSvg } from 'react-native-svg'
 
 const LoginBottomSheet = () => {
-  const { hideBottomSheet } = useBottomSheet()
-
-  const handlePressAppNameLogin = () => {}
-
   const handlePressKakaoLogin = () => {}
 
-  const handlePressAppleLogin = () => {}
+  const handlePressGoogleLogin = () => {}
+
+  const handleAroundScren = () => {}
 
   return (
     <Wrapper>
-      <TitleText>로그인</TitleText>
+      <TitleText size={20} weight="600">
+        로그인
+      </TitleText>
 
-      <ButtonContainer>
-        <RoundedButton
-          style={{ backgroundColor: colors.blue }}
-          onPress={handlePressAppNameLogin}>
-          <ButtonText>앱네임 로그인</ButtonText>
-        </RoundedButton>
+      <RoundedButton
+        style={{ backgroundColor: colors.yellow }}
+        onPress={handlePressKakaoLogin}>
+        <ButtonIcon width={24} height={24} asset={images.kakaoIcon} />
+        <CSText size={14}>카카오 로그인</CSText>
+      </RoundedButton>
 
-        <RoundedButton
-          style={{ backgroundColor: '#fee102' }}
-          onPress={handlePressKakaoLogin}>
-          <ButtonText style={{ color: colors.black }}>카카오 로그인</ButtonText>
-        </RoundedButton>
+      <RoundedButton
+        style={{
+          backgroundColor: colors.white,
+          borderWidth: 1,
+        }}
+        onPress={handlePressGoogleLogin}>
+        <ButtonIcon width={24} height={24} asset={images.googleIcon} />
+        <CSText size={14}>구글 계정으로 로그인</CSText>
+      </RoundedButton>
 
-        {Platform.OS === 'ios' && (
-          <RoundedButton
-            style={{ backgroundColor: '#000' }}
-            onPress={handlePressAppleLogin}>
-            <ButtonText>애플 로그인</ButtonText>
-          </RoundedButton>
-        )}
-      </ButtonContainer>
-
-      <LookAroundButton onPress={hideBottomSheet}>
-        <LookAroundText>둘러보기</LookAroundText>
+      <LookAroundButton onPress={handleAroundScren}>
+        <LookAroundText color={colors.ColorC2C2C2} weight="400">
+          둘러보기
+        </LookAroundText>
       </LookAroundButton>
     </Wrapper>
   )
@@ -49,48 +45,36 @@ const LoginBottomSheet = () => {
 
 const Wrapper = styled.View`
   padding: 25px 42px;
-
-  flex: 1;
 `
 
 const TitleText = styled(CSText)`
-  color: ${colors.black};
-  font-size: 20px;
-  font-weight: 600;
-
   text-align: center;
-
   margin-bottom: 20px;
 `
 
-const ButtonContainer = styled.View``
-
 const RoundedButton = styled.TouchableOpacity`
-  width: 100%;
-  max-width: 400px;
   height: 44px;
 
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-
   margin-bottom: 11px;
 
   border-radius: 30px;
-`
-
-const ButtonText = styled(CSText)`
-  font-weight: 500;
+  border-color: ${colors.ColorE9E9E9};
 `
 
 const LookAroundButton = styled.TouchableOpacity`
   align-self: center;
+  margin: 38px 0px 20px 0px;
+`
 
-  margin-top: 38px;
-  margin-bottom: 20px;
+const ButtonIcon = styled(WithLocalSvg)`
+  position: absolute;
+  left: 12px;
 `
 
 const LookAroundText = styled(CSText)`
-  color: #c2c2c2;
   text-decoration-line: underline;
 `
 

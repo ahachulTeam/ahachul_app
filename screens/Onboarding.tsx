@@ -34,17 +34,17 @@ const SECTIONS: SectionType[] = [
   },
 ]
 
-const Onboarding = () => {
+const Onboarding = ({ navigation }: { navigation: any }) => {
   const { top: insetTop } = useSafeAreaInsets()
   const { showBottomSheet } = useBottomSheet()
 
   const handlePressLogin = () => {
-    showBottomSheet({ component: <LoginBottomSheet />, height: 326 })
+    showBottomSheet({ component: <LoginBottomSheet />, height: 270 })
   }
 
-  const handlePressSignUp = () => {}
-
-  const handlePressLookAround = () => {}
+  const handlePressLookAround = () => {
+    navigation.navigate('Login')
+  }
 
   return (
     <Wrapper insetTop={insetTop}>
@@ -62,18 +62,14 @@ const Onboarding = () => {
         ))}
       </OnboardingCarousel>
 
-      <ButtonContainer>
-        <AuthButton onPress={handlePressLogin}>
-          <LoginText>로그인</LoginText>
-        </AuthButton>
-        <GrayDivider />
-        <AuthButton onPress={handlePressSignUp}>
-          <SingUpText>회원가입</SingUpText>
-        </AuthButton>
+      <ButtonContainer onPress={handlePressLogin}>
+        <CSText size={16} weight="600" color={colors.blue}>
+          로그인
+        </CSText>
       </ButtonContainer>
 
       <LookAroundButton onPress={handlePressLookAround}>
-        <LookAroundText>둘러보기</LookAroundText>
+        <LookAroundText color={colors.ColorC2C2C2}>둘러보기</LookAroundText>
       </LookAroundButton>
     </Wrapper>
   )
@@ -81,7 +77,7 @@ const Onboarding = () => {
 
 const Wrapper = styled.View<WrapperStyleProps>`
   flex: 1;
-
+  background-color: ${colors.white};
   padding-top: ${({ insetTop }) => insetTop + 'px'};
 `
 
@@ -91,10 +87,10 @@ const OnboardingCarousel = styled.ScrollView`
   padding-top: 55px;
 `
 
-const ButtonContainer = styled.View`
-  height: 91px;
+const ButtonContainer = styled.TouchableOpacity`
+  height: 90px;
 
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
 
   margin-bottom: 35px;
@@ -103,38 +99,11 @@ const ButtonContainer = styled.View`
   border-top-color: #e7e7e7;
 `
 
-const AuthButton = styled.TouchableOpacity`
-  width: 50%;
-  height: 100%;
-
-  align-items: center;
-  justify-content: center;
-`
-
-const LoginText = styled(CSText)`
-  color: ${colors.blue};
-  font-size: 16px;
-  font-weight: 600;
-`
-
-const SingUpText = styled(CSText)`
-  color: ${colors.black};
-  font-size: 16px;
-`
-
-const GrayDivider = styled.View`
-  width: 1px;
-  height: 20px;
-
-  background-color: #e7e7e7;
-`
-
 const LookAroundButton = styled.TouchableOpacity`
   align-self: center;
 `
 
 const LookAroundText = styled(CSText)`
-  color: #c2c2c2;
   text-decoration-line: underline;
 `
 
