@@ -27,7 +27,7 @@ const CSTextInput = ({
   lineHeight,
   letterSpacing = -20,
   placeholder,
-  placeholderTextColor = colors.gray50,
+  placeholderTextColor = colors.gray30,
   inputRef,
   flex = 1,
   style,
