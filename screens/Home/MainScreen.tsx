@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { View } from 'react-native'
-import usePopupModal from '../lib/hooks/usePopupModal'
+import usePopupModal from '../../lib/hooks/usePopupModal'
 
-const Home = () => {
+const HomeMainScreen = () => {
   const { showPopupModal } = usePopupModal()
 
   useEffect(() => {
@@ -17,4 +17,4 @@ const Home = () => {
   return <View />
 }
 
-export default Home
+export default HomeMainScreen
