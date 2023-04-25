@@ -10,7 +10,7 @@ type Props = {
   title?: string
   rightIcon?: ReactNode
   rightIconPress?: () => void
-  rightText?: string
+  border?: boolean
 }
 
 const CSHeader = ({
@@ -19,9 +19,10 @@ const CSHeader = ({
   title,
   rightIcon,
   rightIconPress,
+  border = false,
 }: Props) => {
   return (
-    <Container>
+    <Container border={border}>
       {leftIcon && (
         <Icon
           activeOpacity={0.7}
@@ -59,11 +60,14 @@ const CSHeader = ({
 
 export default CSHeader
 
-const Container = styled(View)`
+const Container = styled(View)<{ border: boolean }>`
   background-color: ${colors.white};
   flex-direction: row;
   height: 46px;
   align-items: center;
+
+  border-bottom-width: ${({ border }) => `${border ? 1 : 0}px`};
+  border-color: ${colors.ColorE7E7E7};
 `
 const TextView = styled(View)`
   flex: 1;
