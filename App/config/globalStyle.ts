@@ -36,8 +36,51 @@ export const fonts = {
 }
 
 export const images = {
-  googleIcon: require('../../images/google.svg'),
-  kakaoIcon: require('../../images/kakao.svg'),
+  OnboardingGirl: require('../../images/onboarding-girl.png'),
+  OnboardingShiver: require('../../images/onboarding-shiver.png'),
+}
+
+export const icons = {
+  GoogleIcon: require('../asset/icons/ic_google.svg'),
+  KakaoIcon: require('../asset/icons/ic_kakao.svg'),
+
+  AlarmIcon: require('../asset/icons/ic_alarm.svg'),
+  AlarmFillIcon: require('../asset/icons/ic_alarm_fill.svg'),
+  ArrowIcon: require('../asset/icons/ic_arrow.svg'),
+  ArrowDownIcon: require('../asset/icons/ic_arrow_down.svg'),
+
+  BellIcon: require('../asset/icons/ic_bell.svg'),
+
+  CategoryIcon: require('../asset/icons/ic_category.svg'),
+  CategoryFillIcon: require('../asset/icons/ic_category_fill.svg'),
+  CheckIcon: require('../asset/icons/ic_check.svg'),
+  CheckFillIcon: require('../asset/icons/ic_check_fill.svg'),
+  CloseIcon: require('../asset/icons/ic_close.svg'),
+  CloseFillIcon: require('../asset/icons/ic_close_fill.svg'),
+
+  GridIcon: require('../asset/icons/ic_grid.svg'),
+  HomeIcon: require('../asset/icons/ic_home.svg'),
+  HomeFillIcon: require('../asset/icons/ic_home_fill.svg'),
+
+  Information16Icon: require('../asset/icons/ic_information_16.svg'),
+  Information24Icon: require('../asset/icons/ic_information_24.svg'),
+
+  LocationIcon: require('../asset/icons/ic_location.svg'),
+  LoveIcon: require('../asset/icons/ic_love.svg'),
+  MailIcon: require('../asset/icons/ic_mail.svg'),
+  MenuIcon: require('../asset/icons/ic_menu.svg'),
+
+  MiniHamburgerIcon: require('../asset/icons/ic_mini_hamburger.svg'),
+  NetworkUnconnectedIcon: require('../asset/icons/ic_network_unconnected.svg'),
+  NotificationIcon: require('../asset/icons/ic_notification.svg'),
+
+  ProfileIcon: require('../asset/icons/ic_profile.svg'),
+  RandowBoxIcon: require('../asset/icons/ic_random_box.svg'),
+  RandowBoxFillIcon: require('../asset/icons/ic_random_box_fill.svg'),
+  RefetchIcon: require('../asset/icons/ic_refetch.svg'),
+
+  SearchIcon: require('../asset/icons/ic_search.svg'),
+  ShareIcon: require('../asset/icons/ic_share.svg'),
 }
 
 export const globalStyle = StyleSheet.create({
