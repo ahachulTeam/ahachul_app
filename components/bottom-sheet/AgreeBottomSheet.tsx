@@ -1,12 +1,12 @@
 import styled from '@emotion/native'
 import React, { useEffect, useState } from 'react'
-import { colors } from '../../App/config/globalStyle'
+import { colors, icons } from '../../App/config/globalStyle'
 import CSText from '../common/text'
 import CSButton from '../common/button'
-import AhIcon from '../../App/config/Icon-font'
 import useBottomSheet from '../../lib/hooks/useBottomSheet'
 import AgreeItemRow from '../Login/AgreeItemRow'
 import { View } from 'react-native'
+import { WithLocalSvg } from 'react-native-svg'
 
 const AgreeBottomSheet = () => {
   const [allAgree, setAllAgree] = useState<boolean>(false)
@@ -45,7 +45,7 @@ const AgreeBottomSheet = () => {
       <Body>
         <TitleView>
           <IconView onPress={hideBottomSheet}>
-            <AhIcon size={24} name={'ic_close'} color={colors.black} />
+            <Icon size={24} asset={icons.CloseIcon} color={colors.black} />
           </IconView>
           <CSText size={20} weight="600">
             약관동의
@@ -59,9 +59,9 @@ const AgreeBottomSheet = () => {
         <AgreeTitleView
           style={{ borderColor: allAgree ? colors.blue : colors.gray20 }}
           onPress={handleAllAgree}>
-          <AhIcon
-            size={24}
-            name={'ic_close'}
+          <Icon
+            size={16}
+            asset={icons.CheckFillIcon}
             color={allAgree ? colors.blue : colors.ColorDFDFDF}
           />
           <CSText size={16} style={{ marginLeft: 15 }}>
@@ -142,6 +142,10 @@ const AgreeTitleView = styled.TouchableOpacity`
 
 const AgreeView = styled.View`
   margin: 15px 20px 20px 20px;
+`
+const Icon = styled(WithLocalSvg)<{ size: number }>`
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
 `
 
 export default AgreeBottomSheet

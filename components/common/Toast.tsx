@@ -1,7 +1,8 @@
 import styled from '@emotion/native'
 import React from 'react'
 import CSText from './text'
-import { colors } from '../../App/config/globalStyle'
+import { colors, icons } from '../../App/config/globalStyle'
+import { WithLocalSvg } from 'react-native-svg'
 
 interface ToastProps {
   text1?: string
@@ -11,10 +12,9 @@ interface ToastProps {
 const CSToast = ({ text1, isIconMode = true }: ToastProps) => {
   return (
     <Wrapper>
-      {/* 
-        // TODO: Fontello 프로젝트에 적용되면 아이콘 넣을 예정
-        {isIconMode && <AhIcon size={24} />} 
-        */}
+      {isIconMode && (
+        <WithLocalSvg width={24} height={24} asset={icons.NotificationIcon} />
+      )}
       <ToastText>{text1}</ToastText>
     </Wrapper>
   )

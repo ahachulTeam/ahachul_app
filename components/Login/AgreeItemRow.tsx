@@ -1,8 +1,8 @@
 import styled from '@emotion/native'
 import React from 'react'
-import { colors } from '../../App/config/globalStyle'
+import { colors, icons } from '../../App/config/globalStyle'
 import CSText from '../common/text'
-import AhIcon from '../../App/config/Icon-font'
+import { WithLocalSvg } from 'react-native-svg'
 
 interface AgreeItemRowProps {
   mb?: number
@@ -23,9 +23,9 @@ const AgreeItemRow = ({
   return (
     <Wrapper mb={mb}>
       <CheckView onPress={handleAgreeCheck}>
-        <AhIcon
-          size={20}
-          name={'ic_check'}
+        <Icon
+          size={16}
+          asset={icons.CheckIcon}
           color={value ? colors.blue : colors.ColorDFDFDF}
         />
         <CSText
@@ -37,7 +37,11 @@ const AgreeItemRow = ({
         </CSText>
       </CheckView>
       <IconView onPress={handleArrowClick}>
-        <AhIcon size={20} name={'ic_arrow'} color={colors.ColorBCBCBC} />
+        <Icon
+          size={10}
+          asset={icons.ArrowDownIcon}
+          color={colors.ColorBCBCBC}
+        />
       </IconView>
     </Wrapper>
   )
@@ -55,7 +59,11 @@ const CheckView = styled.TouchableOpacity`
 
 const IconView = styled.TouchableOpacity`
   margin-left: 20px;
-  transform: rotate(180deg);
+  transform: rotate(270deg);
+`
+const Icon = styled(WithLocalSvg)<{ size: number }>`
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
 `
 
 export default AgreeItemRow

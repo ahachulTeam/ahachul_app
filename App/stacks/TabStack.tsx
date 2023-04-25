@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import LostFoundMainScreen from '../../screens/LostFound/MainScreen'
-import AhIcon from '../config/Icon-font'
 import HomeMainScreen from '../../screens/Home/MainScreen'
 import BoardMainScreen from '../../screens/Board/MainScreen'
 import ComplaintsMainScreen from '../../screens/Complaints/MainScreen'
-import { colors, fonts } from '../config/globalStyle'
+import { colors, fonts, icons } from '../config/globalStyle'
+import { WithLocalSvg } from 'react-native-svg'
+import styled from '@emotion/native'
 
 const Tab = createBottomTabNavigator()
 
@@ -25,8 +26,11 @@ const TabStack = () => {
         name="Home"
         component={HomeMainScreen}
         options={{
-          tabBarIcon: ({ color }) => (
-            <AhIcon size={24} name={'ic_home'} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              asset={focused ? icons.HomeFillIcon : icons.HomeIcon}
+            />
           ),
           tabBarLabel: '홈',
         }}
@@ -35,8 +39,11 @@ const TabStack = () => {
         name="LostFound"
         component={LostFoundMainScreen}
         options={{
-          tabBarIcon: ({ color }) => (
-            <AhIcon size={24} name={'ic_random_box_fill'} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              asset={focused ? icons.RandowBoxFillIcon : icons.RandowBoxIcon}
+            />
           ),
           tabBarLabel: '유실물',
         }}
@@ -46,8 +53,11 @@ const TabStack = () => {
         name="Board"
         component={BoardMainScreen}
         options={{
-          tabBarIcon: ({ color }) => (
-            <AhIcon size={24} name={'ic_alarm'} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              asset={focused ? icons.AlarmFillIcon : icons.AlarmIcon}
+            />
           ),
           tabBarLabel: '게시판',
         }}
@@ -57,8 +67,11 @@ const TabStack = () => {
         name="Complaints"
         component={ComplaintsMainScreen}
         options={{
-          tabBarIcon: ({ color }) => (
-            <AhIcon size={24} name={'ic_category'} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <TabIcon
+              color={color}
+              asset={focused ? icons.CategoryFillIcon : icons.CategoryIcon}
+            />
           ),
           tabBarLabel: '민원접수',
         }}
@@ -68,3 +81,8 @@ const TabStack = () => {
 }
 
 export default TabStack
+
+const TabIcon = styled(WithLocalSvg)`
+  width: 24px;
+  height: 24px;
+`

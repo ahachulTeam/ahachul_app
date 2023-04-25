@@ -2,14 +2,14 @@ import styled from '@emotion/native'
 import React, { useState } from 'react'
 import CSScreen from '../components/common/screen'
 import CSHeader from '../components/common/header'
-import AhIcon from '../App/config/Icon-font'
-import { colors } from '../App/config/globalStyle'
+import { colors, icons } from '../App/config/globalStyle'
 import CSText from '../components/common/text'
 import { View } from 'react-native'
 import CSTextInput from '../components/common/textInput'
 import CSButton from '../components/common/button'
 import useBottomSheet from '../lib/hooks/useBottomSheet'
 import AgreeBottomSheet from '../components/bottom-sheet/AgreeBottomSheet'
+import { WithLocalSvg } from 'react-native-svg'
 
 const Login = ({ navigation }: { navigation: { [key: string]: any } }) => {
   const [nickname, setNickname] = useState<string>('')
@@ -29,7 +29,14 @@ const Login = ({ navigation }: { navigation: { [key: string]: any } }) => {
     <CSScreen>
       <CSHeader
         title={'로그인'}
-        leftIcon={<AhIcon size={24} name={'ic_arrow'} color={colors.black} />}
+        leftIcon={
+          <WithLocalSvg
+            width={24}
+            height={24}
+            asset={icons.ArrowIcon}
+            color={colors.black}
+          />
+        }
         leftIconPress={() => navigation.goBack()}
       />
 

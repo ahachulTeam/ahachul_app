@@ -1,6 +1,6 @@
 import styled from '@emotion/native'
 import React from 'react'
-import { colors, images } from '../../App/config/globalStyle'
+import { colors, icons } from '../../App/config/globalStyle'
 import CSText from '../common/text'
 import { WithLocalSvg } from 'react-native-svg'
 
@@ -20,7 +20,7 @@ const LoginBottomSheet = () => {
       <RoundedButton
         style={{ backgroundColor: colors.yellow }}
         onPress={handlePressKakaoLogin}>
-        <ButtonIcon width={24} height={24} asset={images.kakaoIcon} />
+        <ButtonIcon width={24} height={24} asset={icons.KakaoIcon} />
         <CSText size={14}>카카오 로그인</CSText>
       </RoundedButton>
 
@@ -30,7 +30,7 @@ const LoginBottomSheet = () => {
           borderWidth: 1,
         }}
         onPress={handlePressGoogleLogin}>
-        <ButtonIcon width={24} height={24} asset={images.googleIcon} />
+        <ButtonIcon width={24} height={24} asset={icons.GoogleIcon} />
         <CSText size={14}>구글 계정으로 로그인</CSText>
       </RoundedButton>
 

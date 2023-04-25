@@ -2,7 +2,7 @@ import styled from '@emotion/native'
 import React from 'react'
 import { Source } from 'react-native-fast-image'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { colors } from '../App/config/globalStyle'
+import { colors, images } from '../App/config/globalStyle'
 import LoginBottomSheet from '../components/bottom-sheet/LoginBottomSheet'
 import CSText from '../components/common/text'
 import OnboardingSection from '../components/onboarding/OnboardingSection'
@@ -24,13 +24,13 @@ const SECTIONS: SectionType[] = [
     id: 0,
     title: `한 발 빠른\n지하철 소식`,
     body: '알고 싶은 실시간 지하철 정보들을 한 발 빠르게 전해줄게요!',
-    image: require('../images/onboarding-girl.png'),
+    image: images.onboardingGirl,
   },
   {
     id: 1,
     title: `쾌적하고 편안한 여정을\n위한 민원 서비스`,
     body: '터치 한 번이면 유저의 의견을 바로 전달할 수 있어요!',
-    image: require('../images/onboarding-shiver.png'),
+    image: images.onboardingShiver,
   },
 ]
 
