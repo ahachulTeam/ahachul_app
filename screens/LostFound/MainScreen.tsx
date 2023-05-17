@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import CSScreen from '../../components/common/screen'
 import CSHeader from '../../components/common/header'
 import CSButton from '../../components/common/button'
@@ -8,11 +8,15 @@ import { colors, icons } from '../../App/config/globalStyle'
 import CustomSwitch from './CustomSwitch'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import LostPostList from './LostPostList'
-import PopupModal from '../../components/common/PopupModal'
+import CSText from '../../components/common/text'
 
 const LostFoundMainScreen = () => {
   const handleMenuClick = () => {}
   const handleAlarmClick = () => {}
+  const [sortSelected, setSortSelected] = useState(false)
+  const [lineSelected, setLineSelected] = useState(false)
+  const [sourceSelected, setSourceSelected] = useState(false)
+
   const [lostPosts, setLostPosts] = useState([
     {
       id: 1,
@@ -91,6 +95,18 @@ const LostFoundMainScreen = () => {
     },
   ])
 
+  const onClickSortCategory = useCallback(() => {
+    setSortSelected(e => !e)
+  }, [setSortSelected])
+
+  const onClickLineCategory = useCallback(() => {
+    setLineSelected(e => !e)
+  }, [setLineSelected])
+
+  const onClickSourceCategory = useCallback(() => {
+    setSourceSelected(e => !e)
+  }, [setSourceSelected])
+
   return (
     <CSScreen>
       <CSHeader
@@ -117,24 +133,78 @@ const LostFoundMainScreen = () => {
       <View style={{ flex: 1 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
           <Icon asset={icons.GridIcon} />
-          <CSButton
-            text="정렬"
-            borderRadius={40}
-            style={{ width: 80 }}
-            bgColor="#D0EEFF"
-          />
-          <CSButton
-            text="호선"
-            borderRadius={40}
-            style={{ width: 80 }}
-            bgColor="#D0EEFF"
-          />
-          <CSButton
-            text="출처"
-            borderRadius={40}
-            style={{ width: 80 }}
-            bgColor="#D0EEFF"
-          />
+          {!sortSelected ? (
+            <CSButton
+              borderRadius={40}
+              style={{ width: 80, flexDirection: 'row', height: 29 }}
+              bgColor="#D0EEFF"
+              onPress={onClickSortCategory}>
+              <CSText style={{ marginRight: 10, color: `${colors.blue}` }}>
+                정렬
+              </CSText>
+              <BlueArrowIcon asset={icons.ArrowDownIcon} />
+            </CSButton>
+          ) : (
+            <CSButton
+              borderRadius={40}
+              style={{ width: 80, flexDirection: 'row', height: 29 }}
+              bgColor="#EEEEEE"
+              onPress={onClickSortCategory}>
+              <CSText
+                style={{ marginRight: 10, color: `${colors.Color8C8C8C}` }}>
+                정렬
+              </CSText>
+              <GrayArrowIcon asset={icons.ArrowDownIcon} />
+            </CSButton>
+          )}
+          {!lineSelected ? (
+            <CSButton
+              borderRadius={40}
+              style={{ width: 80, flexDirection: 'row', height: 29 }}
+              bgColor="#D0EEFF"
+              onPress={onClickLineCategory}>
+              <CSText style={{ marginRight: 10, color: `${colors.blue}` }}>
+                호선
+              </CSText>
+              <BlueArrowIcon asset={icons.ArrowDownIcon} />
+            </CSButton>
+          ) : (
+            <CSButton
+              borderRadius={40}
+              style={{ width: 80, flexDirection: 'row', height: 29 }}
+              bgColor="#EEEEEE"
+              onPress={onClickLineCategory}>
+              <CSText
+                style={{ marginRight: 10, color: `${colors.Color8C8C8C}` }}>
+                호선
+              </CSText>
+              <GrayArrowIcon asset={icons.ArrowDownIcon} />
+            </CSButton>
+          )}
+          {!sourceSelected ? (
+            <CSButton
+              borderRadius={40}
+              style={{ width: 80, flexDirection: 'row', height: 29 }}
+              bgColor="#D0EEFF"
+              onPress={onClickSourceCategory}>
+              <CSText style={{ marginRight: 10, color: `${colors.blue}` }}>
+                출처
+              </CSText>
+              <BlueArrowIcon asset={icons.ArrowDownIcon} />
+            </CSButton>
+          ) : (
+            <CSButton
+              borderRadius={40}
+              style={{ width: 80, flexDirection: 'row', height: 29 }}
+              bgColor="#EEEEEE"
+              onPress={onClickSourceCategory}>
+              <CSText
+                style={{ marginRight: 10, color: `${colors.Color8C8C8C}` }}>
+                출처
+              </CSText>
+              <GrayArrowIcon asset={icons.ArrowDownIcon} />
+            </CSButton>
+          )}
         </View>
         {/* 유실물 리스트 보여주기 */}
         {lostPosts && <LostPostList posts={lostPosts} />}
@@ -149,4 +219,12 @@ const Icon = styled(WithLocalSvg)`
   width: 24;
   height: 24;
   color: ${colors.black};
+`
+
+const BlueArrowIcon = styled(WithLocalSvg)`
+  color: ${colors.blue};
+`
+
+const GrayArrowIcon = styled(WithLocalSvg)`
+  color: ${colors.Color8C8C8C};
 `
