@@ -24,7 +24,7 @@ const LostFoundMainScreen = () => {
 export default LostFoundMainScreen
 
 const Icon = styled(WithLocalSvg)`
-  width: 24;
-  height: 24;
+  width: 24px;
+  height: 24px;
   color: ${colors.black};
 `
