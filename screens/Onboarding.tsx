@@ -55,7 +55,7 @@ const Onboarding = ({ navigation }: { navigation: any }) => {
   }
 
   const handlePressLookAround = () => {
-    navigation.navigate('Login')
+    navigation.navigate('MainStack')
   }
 
   return (
