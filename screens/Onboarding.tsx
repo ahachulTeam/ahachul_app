@@ -24,13 +24,25 @@ const SECTIONS: SectionType[] = [
     id: 0,
     title: `한 발 빠른\n지하철 소식`,
     body: '알고 싶은 실시간 지하철 정보들을 한 발 빠르게 전해줄게요!',
-    image: images.onboardingGirl,
+    image: images.OnboardingGirl,
   },
   {
     id: 1,
     title: `쾌적하고 편안한 여정을\n위한 민원 서비스`,
     body: '터치 한 번이면 유저의 의견을 바로 전달할 수 있어요!',
-    image: images.onboardingShiver,
+    image: images.OnboardingInconvenient,
+  },
+  {
+    id: 2,
+    title: `출퇴근 더이상\n복잡한 지할철 그만!`,
+    body: '열차 내 다양한 정보로 쾌적한 지하철 이용 경험을 누리세요!',
+    image: images.OnboardingWalking,
+  },
+  {
+    id: 3,
+    title: `한 번에 찾아주는\n분실물 보관함`,
+    body: '이제 지하철에서 잃어버린 물건도 편리하게 찾을 수 있어요!',
+    image: images.OnboardingSearching,
   },
 ]
 
