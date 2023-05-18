@@ -9,7 +9,7 @@ const LoginBottomSheet = () => {
 
   const handlePressGoogleLogin = () => {}
 
-  const handleAroundScren = () => {}
+  const handleAroundScreen = () => {}
 
   return (
     <Wrapper>
@@ -34,7 +34,7 @@ const LoginBottomSheet = () => {
         <CSText size={14}>구글 계정으로 로그인</CSText>
       </RoundedButton>
 
-      <LookAroundButton onPress={handleAroundScren}>
+      <LookAroundButton onPress={handleAroundScreen}>
         <LookAroundText color={colors.ColorC2C2C2} weight="400">
           둘러보기
         </LookAroundText>
