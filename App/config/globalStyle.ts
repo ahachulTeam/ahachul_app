@@ -78,8 +78,8 @@ export const icons = {
   NotificationIcon: require('../asset/icons/ic_notification.svg'),
 
   ProfileIcon: require('../asset/icons/ic_profile.svg'),
-  RandowBoxIcon: require('../asset/icons/ic_random_box.svg'),
-  RandowBoxFillIcon: require('../asset/icons/ic_random_box_fill.svg'),
+  RandomBoxIcon: require('../asset/icons/ic_random_box.svg'),
+  RandomBoxFillIcon: require('../asset/icons/ic_random_box_fill.svg'),
   RefetchIcon: require('../asset/icons/ic_refetch.svg'),
 
   SearchIcon: require('../asset/icons/ic_search.svg'),

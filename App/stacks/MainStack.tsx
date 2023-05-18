@@ -16,4 +16,4 @@ const MainStack = () => {
   )
 }
 
-export default WithAuth(MainStack)
+export default MainStack

@@ -42,7 +42,7 @@ const TabStack = () => {
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
               color={color}
-              asset={focused ? icons.RandowBoxFillIcon : icons.RandowBoxIcon}
+              asset={focused ? icons.RandomBoxFillIcon : icons.RandomBoxIcon}
             />
           ),
           tabBarLabel: '유실물',

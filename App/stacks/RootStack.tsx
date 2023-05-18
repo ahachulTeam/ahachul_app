@@ -22,8 +22,8 @@ const RootStack = () => {
 
       <NavigationContainer>
         <RootStack.Navigator screenOptions={{ headerShown: false }}>
-          <RootStack.Screen name="MainStack" component={MainStack} />
           <RootStack.Screen name="AuthStack" component={AuthStack} />
+          <RootStack.Screen name="MainStack" component={MainStack} />
         </RootStack.Navigator>
       </NavigationContainer>
     </>
