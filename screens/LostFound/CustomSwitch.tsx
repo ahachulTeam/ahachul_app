@@ -7,6 +7,7 @@ import {
   TouchableOpacityProps,
 } from 'react-native'
 import { colors } from '../../App/config/globalStyle'
+import styled from '@emotion/native'
 
 type Props = {
   text?: string
@@ -21,75 +22,75 @@ type Props = {
   option1?: string
   option2?: string
   selectionMode: number
-  roundCorner: number
   selectionColor: string
 }
 
 const CustomSwitch = ({
   selectionMode,
-  roundCorner,
   option1,
   option2,
 }: Props & TouchableOpacityProps) => {
-  const [getSelectionMode, setSelectionMode] = useState(selectionMode)
-  const [getRoundCorner, setRoundCorner] = useState(roundCorner)
+  const [selected, setSelected] = useState(selectionMode)
 
-  const updatedSwitchData = (val: any | number) => {
-    setSelectionMode(val)
+  const onClickButton = (val: any | number) => {
+    setSelected(val)
   }
 
   return (
     <View>
-      <View
-        style={{
-          height: 44,
-          width: 215,
-          backgroundColor: 'white',
-          borderRadius: getRoundCorner ? 25 : 0,
-          borderWidth: 1,
-          borderColor: colors.blue,
-          flexDirection: 'row',
-          justifyContent: 'center',
-          padding: 2,
-        }}>
+      <Container>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => updatedSwitchData(1)}
+          onPress={() => onClickButton(1)}
           style={{
             flex: 1,
-
-            backgroundColor: getSelectionMode == 1 ? colors.blue : 'white',
-            borderRadius: getRoundCorner ? 25 : 0,
+            backgroundColor: selected == 1 ? colors.blue : '#EEEEEE',
+            borderRadius: 40,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           <Text
             style={{
-              color: getSelectionMode == 1 ? 'white' : colors.blue,
+              color: selected == 1 ? 'white' : colors.ColorBCBCBC,
+              fontWeight: '500',
             }}>
             {option1}
           </Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => updatedSwitchData(2)}
+          onPress={() => onClickButton(2)}
           style={{
             flex: 1,
-
-            backgroundColor: getSelectionMode == 2 ? colors.blue : 'white',
-            borderRadius: getRoundCorner ? 25 : 0,
+            backgroundColor: selected == 2 ? colors.blue : '#EEEEEE',
+            borderRadius: 40,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           <Text
             style={{
-              color: getSelectionMode == 2 ? 'white' : colors.blue,
+              color: selected == 2 ? 'white' : colors.ColorBCBCBC,
+              fontWeight: '500',
             }}>
             {option2}
           </Text>
         </TouchableOpacity>
-      </View>
+      </Container>
     </View>
   )
 }
+
+const Container = styled.View`
+  width: 351px;
+  height: 36px;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #eeeeee;
+  border-radius: 40px;
+  border-width: 1px;
+  border-color: #eeeeee;
+  padding: 2px;
+`
+
 export default CustomSwitch

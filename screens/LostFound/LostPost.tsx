@@ -24,75 +24,70 @@ type PostProp = {
 const LostPost = ({ post }: PostProp) => {
   return (
     <CSScreen>
-      <View style={styles.container}>
-        <Image
-          style={styles.tinyImg}
+      <MainContainer>
+        <ImageWrapper
           source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
         />
         <View>
-          <CSText weight="700" style={styles.title}>
-            {post.title}
-          </CSText>
-          <CSText weight="400" style={styles.content}>
-            {post.content}
-          </CSText>
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <CSText weight="400" style={styles.subwayLine}>
+          <Title weight="700">{post.title}</Title>
+          <Content weight="400">{post.content}</Content>
+          <SubContainer>
+            <SubwayAndTime weight="400">
               {post.subwayLine}호선 | {post.createdBy}분 전
-            </CSText>
-            <CSText weight="400" style={styles.chat}>
-              {post.chats}개의 댓글
-            </CSText>
-          </View>
+            </SubwayAndTime>
+            <Chat weight="400">{post.chats}개의 댓글</Chat>
+          </SubContainer>
         </View>
-      </View>
+      </MainContainer>
     </CSScreen>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 10,
-    marginLeft: 10,
-    marginBottom: 10,
-    flexDirection: 'row',
-    width: 280,
-  },
+const MainContainer = styled.View`
+  flex-direction: row;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 280px;
+`
 
-  tinyImg: {
-    marginRight: 5,
-    width: 75,
-    height: 69,
-    borderRadius: 5,
-  },
+const ImageWrapper = styled.Image`
+  width: 75px;
+  height: 69px;
+  border-radius: 5px;
+  margin-right: 10px;
+`
 
-  title: {
-    verticalAlign: 'top',
-    fontSize: 16,
-    lineHeight: 19,
-    color: '#272727',
-  },
+const Title = styled(CSText)`
+  vertical-align: top;
+  font-size: 17px;
+  line-height: 19px;
+  color: ${colors.black};
+`
 
-  content: {
-    verticalAlign: 'top',
-    fontSize: 12,
-    lineHeight: 16,
-    color: '#272727',
-  },
+const Content = styled(CSText)`
+  vertical-align: top;
+  font-size: 12px;
+  line-height: 16px;
+  color: ${colors.black};
+`
 
-  subwayLine: {
-    verticalAlign: 'top',
-    fontSize: 12,
-    lineHeight: 14,
-  },
+const SubContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`
 
-  chat: {
-    verticalAlign: 'top',
-    fontSize: 12,
-    lineHeight: 14,
-  },
-})
+const SubwayAndTime = styled(CSText)`
+  vertical-align: top;
+  font-size: 12px;
+  line-height: 14px;
+`
+
+const Chat = styled(CSText)`
+  vertical-align: top;
+  font-size: 12px;
+  line-height: 14px;
+`
 
 const Icon = styled(WithLocalSvg)`
   width: 24;

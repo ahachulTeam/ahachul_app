@@ -1,6 +1,8 @@
 import React from 'react'
 import { FlatList, View, StyleSheet } from 'react-native'
 import LostPost from './LostPost'
+import styled from '@emotion/native'
+import { colors } from '../../App/config/globalStyle'
 
 type LostPostsType = {
   posts: {
@@ -19,9 +21,8 @@ type LostPostsType = {
 
 const LostPostList = ({ posts }: LostPostsType) => {
   return (
-    <FlatList
-      ItemSeparatorComponent={() => <View style={styles.separator} />}
-      style={styles.list}
+    <Liststyle
+      ItemSeparatorComponent={() => <SeperateWrapper />}
       data={posts}
       renderItem={({ item }) => <LostPost post={item} />}
       keyExtractor={item => item.id.toString()}
@@ -29,14 +30,13 @@ const LostPostList = ({ posts }: LostPostsType) => {
   )
 }
 
-const styles = StyleSheet.create({
-  list: {
-    flex: 1,
-  },
-  separator: {
-    backgroundColor: '#e0e0e0',
-    height: 1,
-  },
-})
+const Liststyle = styled.FlatList`
+  flex: 1;
+`
+
+const SeperateWrapper = styled.View`
+  background-color: '#e0e0e0';
+  height: 1;
+`
 
 export default LostPostList
