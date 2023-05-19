@@ -25,7 +25,7 @@ const HeaderLeft = ({ navigation }: HeaderLeftProps) => {
 
 const BackButton = styled(CSButton)`
   margin-left: 15px;
-  background-color: ${colors.white};
+  background-color: transparent;
 `
 
 export default HeaderLeft
