@@ -23,7 +23,7 @@ const TabStack = () => {
         tabBarInactiveTintColor: colors.gray30,
       }}>
       <Tab.Screen
-        name="Home"
+        name="HomeTab"
         component={HomeMainScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
@@ -36,7 +36,7 @@ const TabStack = () => {
         }}
       />
       <Tab.Screen
-        name="LostFound"
+        name="LostFoundTab"
         component={LostFoundMainScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
@@ -50,7 +50,7 @@ const TabStack = () => {
       />
 
       <Tab.Screen
-        name="Board"
+        name="BoardTab"
         component={BoardMainScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
@@ -64,7 +64,7 @@ const TabStack = () => {
       />
 
       <Tab.Screen
-        name="Complaints"
+        name="ComplaintsTab"
         component={ComplaintsMainScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (

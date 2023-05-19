@@ -4,7 +4,7 @@ import { colors, icons } from '../../App/config/globalStyle'
 import CSText from '../common/text'
 import CSButton from '../common/button'
 import useBottomSheet from '../../lib/hooks/useBottomSheet'
-import AgreeItemRow from '../Login/AgreeItemRow'
+import AgreeItemRow from '../login/AgreeItemRow'
 import { View } from 'react-native'
 import { WithLocalSvg } from 'react-native-svg'
 

@@ -4,10 +4,15 @@ import CSHeader from '../../components/common/header'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 import { colors, icons } from '../../App/config/globalStyle'
+import { useNavigation } from '@react-navigation/native'
 
 const LostFoundMainScreen = () => {
+  const navigation = useNavigation()
+
   const handleMenuClick = () => {}
-  const handleAlarmClick = () => {}
+  const handleAlarmClick = () => {
+    navigation.navigate('LostDetail')
+  }
   return (
     <CSScreen>
       <CSHeader
