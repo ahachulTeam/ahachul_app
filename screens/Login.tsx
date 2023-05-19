@@ -1,15 +1,15 @@
 import styled from '@emotion/native'
 import React, { useState } from 'react'
-import CSScreen from '../components/common/screen'
-import CSHeader from '../components/common/header'
-import { colors, icons } from '../App/config/globalStyle'
-import CSText from '../components/common/text'
 import { View } from 'react-native'
-import CSTextInput from '../components/common/textInput'
-import CSButton from '../components/common/button'
-import useBottomSheet from '../lib/hooks/useBottomSheet'
+import ArrowBackIcon from '../App/assets/svg/ic_arrow_back.svg'
+import { colors } from '../App/config/globalStyle'
 import AgreeBottomSheet from '../components/bottom-sheet/AgreeBottomSheet'
-import { WithLocalSvg } from 'react-native-svg'
+import CSButton from '../components/common/button'
+import CSHeader from '../components/common/header'
+import CSScreen from '../components/common/screen'
+import CSText from '../components/common/text'
+import CSTextInput from '../components/common/textInput'
+import useBottomSheet from '../lib/hooks/useBottomSheet'
 
 const Login = ({ navigation }: { navigation: { [key: string]: any } }) => {
   const [nickname, setNickname] = useState<string>('')
@@ -29,14 +29,7 @@ const Login = ({ navigation }: { navigation: { [key: string]: any } }) => {
     <CSScreen>
       <CSHeader
         title={'로그인'}
-        leftIcon={
-          <WithLocalSvg
-            width={24}
-            height={24}
-            asset={icons.ArrowIcon}
-            color={colors.black}
-          />
-        }
+        leftIcon={<ArrowBackIcon width={24} height={24} color={colors.black} />}
         leftIconPress={() => navigation.goBack()}
       />
 

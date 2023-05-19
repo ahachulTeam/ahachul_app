@@ -1,24 +1,27 @@
 import React from 'react'
 import CSScreen from '../../components/common/screen'
 import CSHeader from '../../components/common/header'
-import styled from '@emotion/native'
-import { WithLocalSvg } from 'react-native-svg'
-import { colors, icons } from '../../App/config/globalStyle'
+import MenuIcon from '../../App/assets/svg/ic_menu.svg'
+import BellIcon from '../../App/assets/svg/ic_bell.svg'
+import { colors } from '../../App/config/globalStyle'
 import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { MainStackScreenList } from '../../lib/types/navigations'
 
 const LostFoundMainScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<StackNavigationProp<MainStackScreenList>>()
 
   const handleMenuClick = () => {}
   const handleAlarmClick = () => {
     navigation.navigate('LostDetail')
   }
+
   return (
     <CSScreen>
       <CSHeader
-        leftIcon={<Icon asset={icons.MenuIcon} />}
+        leftIcon={<MenuIcon width={24} height={24} color={colors.black} />}
         leftIconPress={handleMenuClick}
-        rightIcon={<Icon asset={icons.BellIcon} />}
+        rightIcon={<BellIcon width={24} height={24} color={colors.black} />}
         rightIconPress={handleAlarmClick}
         border
       />
@@ -27,9 +30,3 @@ const LostFoundMainScreen = () => {
 }
 
 export default LostFoundMainScreen
-
-const Icon = styled(WithLocalSvg)`
-  width: 24px;
-  height: 24px;
-  color: ${colors.black};
-`

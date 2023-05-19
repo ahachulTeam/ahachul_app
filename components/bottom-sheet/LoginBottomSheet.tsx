@@ -1,8 +1,9 @@
 import styled from '@emotion/native'
 import React from 'react'
-import { colors, icons } from '../../App/config/globalStyle'
+import GoogleIcon from '../../App/assets/svg/ic_google.svg'
+import KakaoIcon from '../../App/assets/svg/ic_kakao.svg'
+import { colors } from '../../App/config/globalStyle'
 import CSText from '../common/text'
-import { WithLocalSvg } from 'react-native-svg'
 
 const LoginBottomSheet = () => {
   const handlePressKakaoLogin = () => {}
@@ -20,7 +21,7 @@ const LoginBottomSheet = () => {
       <RoundedButton
         style={{ backgroundColor: colors.yellow }}
         onPress={handlePressKakaoLogin}>
-        <ButtonIcon width={24} height={24} asset={icons.KakaoIcon} />
+        <KakaoButtonIcon width={24} height={24} />
         <CSText size={14}>카카오 로그인</CSText>
       </RoundedButton>
 
@@ -30,7 +31,7 @@ const LoginBottomSheet = () => {
           borderWidth: 1,
         }}
         onPress={handlePressGoogleLogin}>
-        <ButtonIcon width={24} height={24} asset={icons.GoogleIcon} />
+        <GoogleButtonIcon width={24} height={24} />
         <CSText size={14}>구글 계정으로 로그인</CSText>
       </RoundedButton>
 
@@ -69,7 +70,12 @@ const LookAroundButton = styled.TouchableOpacity`
   margin: 38px 0px 20px 0px;
 `
 
-const ButtonIcon = styled(WithLocalSvg)`
+const KakaoButtonIcon = styled(KakaoIcon)`
+  position: absolute;
+  left: 12px;
+`
+
+const GoogleButtonIcon = styled(GoogleIcon)`
   position: absolute;
   left: 12px;
 `

@@ -1,12 +1,13 @@
 import styled from '@emotion/native'
 import React, { useEffect, useState } from 'react'
-import { colors, icons } from '../../App/config/globalStyle'
-import CSText from '../common/text'
-import CSButton from '../common/button'
-import useBottomSheet from '../../lib/hooks/useBottomSheet'
-import AgreeItemRow from '../login/AgreeItemRow'
 import { View } from 'react-native'
-import { WithLocalSvg } from 'react-native-svg'
+import CheckFillIcon from '../../App/assets/svg/ic_check_fill.svg'
+import CloseIcon from '../../App/assets/svg/ic_close.svg'
+import { colors } from '../../App/config/globalStyle'
+import useBottomSheet from '../../lib/hooks/useBottomSheet'
+import CSButton from '../common/button'
+import CSText from '../common/text'
+import AgreeItemRow from '../login/AgreeItemRow'
 
 const AgreeBottomSheet = () => {
   const [allAgree, setAllAgree] = useState<boolean>(false)
@@ -45,7 +46,7 @@ const AgreeBottomSheet = () => {
       <Body>
         <TitleView>
           <IconView onPress={hideBottomSheet}>
-            <Icon size={24} asset={icons.CloseIcon} color={colors.black} />
+            <CloseIcon width={24} height={24} color={colors.black} />
           </IconView>
           <CSText size={20} weight="600">
             약관동의
@@ -59,11 +60,7 @@ const AgreeBottomSheet = () => {
         <AgreeTitleView
           style={{ borderColor: allAgree ? colors.blue : colors.gray20 }}
           onPress={handleAllAgree}>
-          <Icon
-            size={16}
-            asset={icons.CheckFillIcon}
-            color={allAgree ? colors.blue : colors.ColorDFDFDF}
-          />
+          <CheckFillIcon width={24} height={24} color={colors.black} />
           <CSText size={16} style={{ marginLeft: 15 }}>
             아하철이형 약관 모두 동의
           </CSText>
@@ -142,10 +139,6 @@ const AgreeTitleView = styled.TouchableOpacity`
 
 const AgreeView = styled.View`
   margin: 15px 20px 20px 20px;
-`
-const Icon = styled(WithLocalSvg)<{ size: number }>`
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
 `
 
 export default AgreeBottomSheet
