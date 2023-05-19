@@ -10,6 +10,7 @@ import CSButton from '../../components/common/button'
 import CSText from '../../components/common/text'
 import { SCREEN_WIDTH } from '../../lib/public/constants'
 import { MainStackScreenList } from '../../lib/types/navigations'
+import { getElapsedTime } from '../../lib/utils/global'
 
 const TEMP_LOST_DETAIL_DATA = {
   images: [
@@ -83,7 +84,11 @@ const LostDetail = () => {
             </AcquisitionContainer>
           </Row>
           <PostSubInfo>
-            <GraySmallText>{`${TEMP_LOST_DETAIL_DATA.author.name} | ${TEMP_LOST_DETAIL_DATA.createdAt}`}</GraySmallText>
+            <GraySmallText>{`${
+              TEMP_LOST_DETAIL_DATA.author.name
+            }   |   ${getElapsedTime(
+              TEMP_LOST_DETAIL_DATA.createdAt,
+            )}`}</GraySmallText>
           </PostSubInfo>
           <Divider />
         </Section>
