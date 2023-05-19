@@ -7,7 +7,9 @@ export const getStackScreenOptions = (navigation: any) => {
     headerBackTitleVisible: false,
     headerTintColor: colors.black,
     headerLeft: () => <HeaderLeft navigation={navigation} />,
-    headerStyle: { borderBottomColor: colors.ColorE7E7E7 },
+    headerStyle: {
+      borderBottomColor: colors.ColorE7E7E7,
+    },
     title: '',
     cardStyle: {
       backgroundColor: '#fff',

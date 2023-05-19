@@ -2,11 +2,12 @@ import {
   CardStyleInterpolators,
   createStackNavigator,
 } from '@react-navigation/stack'
+import { AuthStackScreenList } from '../../lib/types/navigations'
 import Login from '../../screens/Login'
 import Onboarding from '../../screens/Onboarding'
 import Signup from '../../screens/Signup'
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<AuthStackScreenList>()
 
 const AuthStack = () => {
   return (
