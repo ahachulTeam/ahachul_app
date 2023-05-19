@@ -49,7 +49,8 @@
     "metro-react-native-babel-preset": "0.73.7",
     "prettier": "^2.4.1",
     "react-test-renderer": "18.2.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "react-native-svg-transformer": "^1.0.0"
   },
   "jest": {
     "preset": "react-native"
