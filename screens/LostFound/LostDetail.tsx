@@ -60,7 +60,10 @@ const LostDetail = () => {
         <ImageCarousel
           horizontal
           showsHorizontalScrollIndicator={false}
-          pagingEnabled>
+          pagingEnabled
+          style={{
+            borderBottomRightRadius: 50,
+          }}>
           {TEMP_LOST_DETAIL_DATA.images.map(image => (
             <LostImage key={`lost-image-${image}`} source={{ uri: image }} />
           ))}
