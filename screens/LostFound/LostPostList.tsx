@@ -1,10 +1,9 @@
 import React from 'react'
-import { FlatList, View, StyleSheet } from 'react-native'
 import LostPost from './LostPost'
 import styled from '@emotion/native'
-import { colors } from '../../App/config/globalStyle'
+import { ListRenderItem } from 'react-native'
 
-type LostPostsType = {
+interface LostPostsType {
   posts: {
     id: number
     title: string
@@ -19,13 +18,30 @@ type LostPostsType = {
   }[]
 }
 
+interface PostType {
+  id: number
+  title: string
+  content: string
+  writer: string
+  createdBy: string
+  date: string
+  subwayLine: number
+  chats: number
+  imgUrl: string
+  status: string
+}
+
 const LostPostList = ({ posts }: LostPostsType) => {
+  const renderItem: ListRenderItem<PostType | any> = ({ item }) => (
+    <LostPost post={item} />
+  )
+
   return (
     <Liststyle
       ItemSeparatorComponent={() => <SeperateWrapper />}
       data={posts}
-      renderItem={({ item }) => <LostPost post={item} />}
-      keyExtractor={item => item.id.toString()}
+      renderItem={renderItem}
+      keyExtractor={(item: PostType | any) => item.id.toString()}
     />
   )
 }
