@@ -25,8 +25,12 @@ export const colors = {
   ColorD0EEFF: '#D0EEFF',
   ColorDFDFDF: '#DFDFDF',
   Color8C8C8C: '#8C8C8C',
+  ColorE6E6E6: '#E6E6E6',
   ColorE7E7E7: '#E7E7E7',
   ColorBEBEBE: '#BEBEBE',
+  ColorDADADA: '#DADADA',
+  ColorF7F7F7: '#F7F7F7',
+  ColorA1A1A1: '#A1A1A1',
 }
 
 export const fonts = {
@@ -53,6 +57,7 @@ export const icons = {
 
   BellIcon: require('../asset/icons/ic_bell.svg'),
 
+  CameraAltIcon: require('../asset/icons/ic_camera_alt.svg'),
   CategoryIcon: require('../asset/icons/ic_category.svg'),
   CategoryFillIcon: require('../asset/icons/ic_category_fill.svg'),
   CheckIcon: require('../asset/icons/ic_check.svg'),
