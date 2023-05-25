@@ -1,6 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import WithAuth from '../../components/public/WithAuth'
 import TabStack from './TabStack'
+import LostDetail from '../../screens/LostFound/LostDetail'
 
 const Stack = createStackNavigator()
 
@@ -10,6 +11,11 @@ const MainStack = () => {
       <Stack.Screen
         name="TabStack"
         component={TabStack}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="LostDetail"
+        component={LostDetail}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

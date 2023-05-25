@@ -5,6 +5,10 @@ import CSScreen from '../../components/common/screen'
 import { colors } from '../../App/config/globalStyle'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
+import LostDetail from './LostDetail'
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { MainStackScreenList } from '../../lib/types/navigations'
 
 interface PostProp {
   post: {
@@ -22,9 +26,11 @@ interface PostProp {
 }
 
 const LostPost = ({ post }: PostProp) => {
+  const navigation = useNavigation<StackNavigationProp<MainStackScreenList>>()
+
   return (
     <CSScreen>
-      <MainContainer>
+      <MainContainer onPress={() => navigation.navigate('LostDetail')}>
         <ImageWrapper
           source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
         />

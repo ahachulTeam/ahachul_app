@@ -1,11 +1,10 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import CSScreen from '../../components/common/screen'
 import CSHeader from '../../components/common/header'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 import { colors, icons } from '../../App/config/globalStyle'
 import CustomSwitch from './CustomSwitch'
-import { View } from 'react-native'
 import LostPostList from './LostPostList'
 import Navbar from './Navbar'
 
