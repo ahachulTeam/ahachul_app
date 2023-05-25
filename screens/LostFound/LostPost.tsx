@@ -1,8 +1,8 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image } from 'react-native'
+import { View } from 'react-native'
 import CSText from '../../components/common/text'
 import CSScreen from '../../components/common/screen'
-import { colors, icons } from '../../App/config/globalStyle'
+import { colors } from '../../App/config/globalStyle'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 
@@ -43,7 +43,7 @@ const LostPost = ({ post }: PostProp) => {
   )
 }
 
-const MainContainer = styled.View`
+const MainContainer = styled.TouchableOpacity`
   flex-direction: row;
   margin-top: 10px;
   margin-left: 10px;

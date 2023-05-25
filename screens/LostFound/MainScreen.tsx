@@ -101,29 +101,29 @@ const LostFoundMainScreen = () => {
         border
       />
       {/*  습득물 조회 / 분실물 찾기 */}
-      <View style={{ alignItems: 'center' }}>
-        <View style={{ alignItems: 'center', margin: 20 }}>
+      <SwitchButtonWrapper>
+        <SwitchButton>
           <CustomSwitch
             selectionMode={1}
             option1={'습득물 조회'}
             option2={'분실물 찾기'}
             selectionColor={'blue'}
           />
-        </View>
-      </View>
+        </SwitchButton>
+      </SwitchButtonWrapper>
 
       {/* 정렬버튼? / 정렬 / 호선 / 출처 */}
-      <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+      <ToggleButtonWrapper>
+        <ToggleButton>
           <GridIcon asset={icons.GridIcon} />
           <Navbar text="정렬" />
           <Navbar text="호선" />
           <Navbar text="출처" />
-        </View>
+        </ToggleButton>
 
         {/* 유실물 리스트 보여주기 */}
         {lostPosts && <LostPostList posts={lostPosts} />}
-      </View>
+      </ToggleButtonWrapper>
     </CSScreen>
   )
 }
@@ -139,4 +139,21 @@ const GridIcon = styled(WithLocalSvg)`
   width: 17;
   height: 13;
   color: ${colors.ColorBEBEBE};
+`
+const SwitchButtonWrapper = styled.View`
+  align-items: center;
+`
+
+const SwitchButton = styled.View`
+  align-items: center;
+  margin: 20px;
+`
+
+const ToggleButtonWrapper = styled.View`
+  flex: 1;
+`
+
+const ToggleButton = styled.View`
+  flex-direction: row;
+  justify-content: space-evenly;
 `

@@ -37,7 +37,7 @@ const LostPostList = ({ posts }: LostPostsType) => {
   )
 
   return (
-    <Liststyle
+    <ListWrapper
       ItemSeparatorComponent={() => <SeperateWrapper />}
       data={posts}
       renderItem={renderItem}
@@ -46,7 +46,7 @@ const LostPostList = ({ posts }: LostPostsType) => {
   )
 }
 
-const Liststyle = styled.FlatList`
+const ListWrapper = styled.FlatList`
   flex: 1;
 `
 
