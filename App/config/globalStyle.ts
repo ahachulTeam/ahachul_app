@@ -31,6 +31,7 @@ export const colors = {
   ColorDADADA: '#DADADA',
   ColorF7F7F7: '#F7F7F7',
   ColorA1A1A1: '#A1A1A1',
+  ColorD9D9D9: '#D9D9D9',
 }
 
 export const fonts = {

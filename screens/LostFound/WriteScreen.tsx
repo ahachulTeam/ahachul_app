@@ -7,7 +7,7 @@ import CSScreen from '../../components/common/screen'
 import CSHeader from '../../components/common/header'
 import CSText from '../../components/common/text'
 import CSButton from '../../components/common/button'
-import WriteInput from '../../components/LostFound/WriteInput'
+import LostFoundWriteInput from '../../components/LostFound/WriteInput'
 import CSTextArea from '../../components/common/textArea'
 import useBottomSheet from '../../lib/hooks/useBottomSheet'
 import SelectLineBottomSheet from '../../components/bottom-sheet/SelectLineBottomSheet'
@@ -23,11 +23,12 @@ const LostFoundWriteScreen = ({ navigation }: { navigation: any }) => {
     showBottomSheet({
       component: (
         <SelectLineBottomSheet
+          type={type}
           value={selectedLine}
           handleChange={setSelectedLine}
         />
       ),
-      height: 390,
+      height: 422,
     })
   }
 
@@ -81,7 +82,7 @@ const LostFoundWriteScreen = ({ navigation }: { navigation: any }) => {
         </SelectLineView>
 
         <MainText>제목</MainText>
-        <WriteInput
+        <LostFoundWriteInput
           mb={16}
           placeholder={'제목을 입력하세요(40자 이내)'}
           value={title}
