@@ -4,13 +4,12 @@ import { colors } from '../../../App/config/globalStyle'
 import CSTextInput from '../textInput'
 import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   mb: number
   value: string
   placeholder?: string
   onChangeText: (text: string) => void
   maximumInput?: number
-  style?: object
 }
 
 const CSTextArea = ({
@@ -23,7 +22,7 @@ const CSTextArea = ({
   ...props
 }: Props & TextInputProps) => {
   return (
-    <Container mb={mb} style={style}>
+    <Container mb={mb}>
       <CSTextInput
         color={colors.black}
         placeholder={placeholder}

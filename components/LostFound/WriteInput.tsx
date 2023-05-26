@@ -1,16 +1,14 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { KeyboardTypeOptions } from 'react-native'
 import { colors } from '../../App/config/globalStyle'
 import CSTextInput from '../common/textInput'
 import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   mb?: number
   placeholder?: string
   value: string
   onChangeText: (text: string) => void
-  style?: object
-  right?: ReactNode
   keyboardType?: KeyboardTypeOptions
   maxLength?: number
 }
@@ -20,8 +18,6 @@ const LostFoundWriteInput = ({
   placeholder,
   value,
   onChangeText,
-  style,
-  right,
   keyboardType = 'default',
   maxLength,
   ...props
@@ -38,7 +34,6 @@ const LostFoundWriteInput = ({
         maxLength={maxLength}
         {...props}
       />
-      {right && right}
     </TextInputView>
   )
 }
