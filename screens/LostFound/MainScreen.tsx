@@ -122,7 +122,6 @@ const LostFoundMainScreen = () => {
         </ToggleButton>
 
         {/* 찾이 완료 제외 버튼 */}
-
         <LostFoundComplete />
       </ToggleButtonWrapper>
 

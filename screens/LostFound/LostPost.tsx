@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import CSText from '../../components/common/text'
 import CSScreen from '../../components/common/screen'
+import CSButton from '../../components/common/button'
 import { colors } from '../../App/config/globalStyle'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
@@ -29,11 +30,11 @@ const LostPost = ({ post }: PostProp) => {
 
   return (
     <CSScreen>
-      <MainContainer onPress={() => navigation.navigate('LostDetail')}>
+      <MainContainer>
         <ImageWrapper
           source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
         />
-        <View>
+        <TextContainer>
           <Title weight="700">{post.title}</Title>
           <Content weight="400">{post.content}</Content>
           <SubContainer>
@@ -42,18 +43,20 @@ const LostPost = ({ post }: PostProp) => {
             </SubwayAndTime>
             <Chat weight="400">{post.chats}개의 댓글</Chat>
           </SubContainer>
-        </View>
+        </TextContainer>
       </MainContainer>
     </CSScreen>
   )
 }
 
-const MainContainer = styled.TouchableOpacity`
+const MainContainer = styled(CSButton)`
   flex-direction: row;
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
-  width: 280px;
+  width: 360px;
+  height: 80px;
+  background: white;
 `
 
 const ImageWrapper = styled.Image`
@@ -61,6 +64,10 @@ const ImageWrapper = styled.Image`
   height: 69px;
   border-radius: 5px;
   margin-right: 10px;
+`
+
+const TextContainer = styled.View`
+  flex-direction: column;
 `
 
 const Title = styled(CSText)`
@@ -75,6 +82,7 @@ const Content = styled(CSText)`
   font-size: 12px;
   line-height: 16px;
   color: ${colors.black};
+  width: 270px;
 `
 
 const SubContainer = styled.View`

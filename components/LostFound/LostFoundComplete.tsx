@@ -1,28 +1,56 @@
 import styled from '@emotion/native'
-import { Button, Text, View } from 'react-native'
+import CSText from '../common/text'
+import CSButton from '../common/button'
+import { WithLocalSvg } from 'react-native-svg'
+import { colors, icons } from '../../App/config/globalStyle'
 
 const LostFoundComplete = () => {
   return (
     <Wrapper>
-      <Check />
-      <View>
-        <CSText>찾기 완료 제외하기</CSText>
-      </View>
+      <CheckButtonWrapper>
+        <CheckButton asset={icons.CheckIcon} />
+      </CheckButtonWrapper>
+      <TextWrapper>
+        <Text>찾기완료버튼</Text>
+      </TextWrapper>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.View`
-  display: flex;
+const Wrapper = styled(CSButton)`
   flex-direction: row;
-  justify-content: space-between;
-  width: 130px;
+  align-items: center;
+  width: 145px;
   height: 29px;
   margin-top: 10px;
   left: 20px;
+  gap: 10px;
+  background: white;
 `
 
-const CSText = styled.Text`
+const CheckButtonWrapper = styled.View`
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: ${colors.ColorDFDFDF};
+`
+
+const CheckButton = styled(WithLocalSvg)`
+  width: 5px;
+  height: 5px;
+  color: ${colors.white};
+`
+
+const TextWrapper = styled.View`
+  width: 100px;
+  height: 29px;
+  background: white;
+`
+
+const Text = styled(CSText)`
   font-family: 'Pretendard Variable';
   font-style: normal;
   font-weight: 500;
@@ -31,15 +59,6 @@ const CSText = styled.Text`
   /* identical to box height, or 207% */
 
   color: #272727;
-`
-
-const Check = styled.View`
-  position: absolute;
-  width: 16px;
-  height: 16px;
-
-  background: red;
-  /* background: #dfdfdf; */
 `
 
 export default LostFoundComplete
