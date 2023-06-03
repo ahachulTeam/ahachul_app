@@ -11,16 +11,16 @@ import { MainStackScreenList } from '../../lib/types/navigations'
 
 interface PostProp {
   post: {
-    id: number
-    title: string
-    content: string
-    writer: string
-    createdBy: string
-    date: string
-    subwayLine: number
-    chats: number
-    imgUrl: string
-    status: string
+    id?: number
+    title?: string
+    content?: string
+    writer?: string
+    createdBy?: string
+    date?: string
+    subwayLine?: number
+    chats?: number
+    imgUrl?: string
+    status?: string
   }
 }
 

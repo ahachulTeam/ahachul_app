@@ -4,9 +4,10 @@ import CSHeader from '../../components/common/header'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 import { colors, icons } from '../../App/config/globalStyle'
-import CustomSwitch from './CustomSwitch'
+import CustomSwitch from '../../components/LostFound/CustomSwitch'
 import LostPostList from './LostPostList'
-import Navbar from './Navbar'
+import Navbar from '../../components/LostFound/Navbar'
+import LostFoundComplete from '../../components/LostFound/LostFoundComplete'
 
 const lostPosts = [
   {
@@ -120,9 +121,13 @@ const LostFoundMainScreen = () => {
           <Navbar text="출처" />
         </ToggleButton>
 
-        {/* 유실물 리스트 보여주기 */}
-        {lostPosts && <LostPostList posts={lostPosts} />}
+        {/* 찾이 완료 제외 버튼 */}
+
+        <LostFoundComplete />
       </ToggleButtonWrapper>
+
+      {/* 유실물 리스트 보여주기 */}
+      {lostPosts && <LostPostList posts={lostPosts} />}
     </CSScreen>
   )
 }
@@ -149,10 +154,24 @@ const SwitchButton = styled.View`
 `
 
 const ToggleButtonWrapper = styled.View`
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  /* height: 231; */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `
 
 const ToggleButton = styled.View`
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 37px;
+  /* background: red; */
+`
+const LostFoundWrapper = styled.View`
+  position: absolute;
+  height: 29px;
+  background: blue;
 `

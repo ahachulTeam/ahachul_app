@@ -3,8 +3,8 @@ import { View } from 'react-native'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 import { colors, icons } from '../../App/config/globalStyle'
-import CSButton from '../../components/common/button'
-import CSText from '../../components/common/text'
+import CSButton from '../common/button'
+import CSText from '../common/text'
 
 type NavbarProps = {
   text: string
