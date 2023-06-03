@@ -28,7 +28,7 @@ const WithAuth =
       getAsyncToken()
     }, [token])
 
-    return !token ? <WrappedComponent {...props} /> : <AuthStack />
+    return token ? <WrappedComponent {...props} /> : <AuthStack />
   }
 
 export default WithAuth

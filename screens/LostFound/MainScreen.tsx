@@ -1,11 +1,10 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import CSScreen from '../../components/common/screen'
 import CSHeader from '../../components/common/header'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 import { colors, icons } from '../../App/config/globalStyle'
-import CustomSwitch from './CustomSwitch'
-import { View } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import LostPostList from './LostPostList'
 import Navbar from './Navbar'
 
@@ -90,7 +89,6 @@ const lostPosts = [
 const LostFoundMainScreen = () => {
   const handleMenuClick = () => {}
   const handleAlarmClick = () => {}
-
   return (
     <CSScreen>
       <CSHeader
@@ -100,30 +98,6 @@ const LostFoundMainScreen = () => {
         rightIconPress={handleAlarmClick}
         border
       />
-      {/*  습득물 조회 / 분실물 찾기 */}
-      <View style={{ alignItems: 'center' }}>
-        <View style={{ alignItems: 'center', margin: 20 }}>
-          <CustomSwitch
-            selectionMode={1}
-            option1={'습득물 조회'}
-            option2={'분실물 찾기'}
-            selectionColor={'blue'}
-          />
-        </View>
-      </View>
-
-      {/* 정렬버튼? / 정렬 / 호선 / 출처 */}
-      <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-          <GridIcon asset={icons.GridIcon} />
-          <Navbar text="정렬" />
-          <Navbar text="호선" />
-          <Navbar text="출처" />
-        </View>
-
-        {/* 유실물 리스트 보여주기 */}
-        {lostPosts && <LostPostList posts={lostPosts} />}
-      </View>
     </CSScreen>
   )
 }
@@ -134,9 +108,4 @@ const Icon = styled(WithLocalSvg)`
   width: 24;
   height: 24;
   color: ${colors.black};
-`
-const GridIcon = styled(WithLocalSvg)`
-  width: 17;
-  height: 13;
-  color: ${colors.ColorBEBEBE};
 `
