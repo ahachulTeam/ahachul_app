@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { MainStackScreenList } from '../../lib/types/navigations'
 
+
 const LostFoundMainScreen = () => {
   const navigation = useNavigation<StackNavigationProp<MainStackScreenList>>()
 
