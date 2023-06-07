@@ -64,3 +64,4 @@ yarn-error.log
 
 .env
 env.js
+.vscode/
