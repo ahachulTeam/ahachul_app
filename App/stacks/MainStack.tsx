@@ -7,6 +7,7 @@ import { getStackScreenOptions } from '../../lib/utils/navigation'
 import LostDetail from '../../screens/LostFound/LostDetail'
 import { colors } from '../config/globalStyle'
 import TabStack from './TabStack'
+import LostDetail from '../../screens/LostFound/LostDetail'
 
 const Stack = createStackNavigator()
 
@@ -27,7 +28,11 @@ const MainStack = ({
       <Stack.Screen
         name="LostDetail"
         component={LostDetail}
+<<<<<<< HEAD
         options={{ title: '' }}
+=======
+        options={{ headerShown: false }}
+>>>>>>> cb8c55641c3ea2a28ca15e7570111ddc6db046a4
       />
     </Stack.Navigator>
   )
