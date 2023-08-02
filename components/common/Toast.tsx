@@ -1,8 +1,8 @@
 import styled from '@emotion/native'
 import React from 'react'
+import NotificationIcon from '../../App/assets/svg/ic_notification.svg'
+import { colors } from '../../App/config/globalStyle'
 import CSText from './text'
-import { colors, icons } from '../../App/config/globalStyle'
-import { WithLocalSvg } from 'react-native-svg'
 
 interface ToastProps {
   text1?: string
@@ -12,9 +12,7 @@ interface ToastProps {
 const CSToast = ({ text1, isIconMode = true }: ToastProps) => {
   return (
     <Wrapper>
-      {isIconMode && (
-        <WithLocalSvg width={24} height={24} asset={icons.NotificationIcon} />
-      )}
+      {isIconMode && <NotificationIcon width={24} height={24} />}
       <ToastText>{text1}</ToastText>
     </Wrapper>
   )

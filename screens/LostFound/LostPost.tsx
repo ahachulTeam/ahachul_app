@@ -6,7 +6,7 @@ import { colors, icons } from '../../App/config/globalStyle'
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 
-type PostProp = {
+interface PostProp {
   post: {
     id: number
     title: string

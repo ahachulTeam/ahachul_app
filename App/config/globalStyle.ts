@@ -32,6 +32,7 @@ export const colors = {
   ColorF7F7F7: '#F7F7F7',
   ColorA1A1A1: '#A1A1A1',
   ColorD9D9D9: '#D9D9D9',
+
 }
 
 export const fonts = {
@@ -44,7 +45,9 @@ export const fonts = {
 
 export const images = {
   OnboardingGirl: require('../../images/onboarding-girl.png'),
-  OnboardingShiver: require('../../images/onboarding-shiver.png'),
+  OnboardingInconvenient: require('../../images/onboarding-inconvenient.png'),
+  OnboardingWalking: require('../../images/onboarding-walking.png'),
+  OnboardingSearching: require('../../images/onboarding-searching.png'),
 }
 
 export const icons = {
