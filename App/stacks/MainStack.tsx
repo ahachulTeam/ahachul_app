@@ -7,6 +7,7 @@ import { getStackScreenOptions } from '../../lib/utils/navigation'
 import LostDetail from '../../screens/LostFound/LostDetail'
 import { colors } from '../config/globalStyle'
 import TabStack from './TabStack'
+import LostFoundWriteScreen from '../../screens/LostFound/WriteScreen'
 
 const Stack = createStackNavigator()
 
@@ -18,10 +19,11 @@ const MainStack = ({
   return (
     <Stack.Navigator
       initialRouteName="TabStack"
-      screenOptions={({ navigation: nav }) => getStackScreenOptions(nav)}>
+       screenOptions={({ navigation: nav }) => getStackScreenOptions(nav)}>
+      <Stack.Screen name="TabStack" component={TabStack} />
       <Stack.Screen
-        name="TabStack"
-        component={TabStack}
+        name="LostFoundWriteScreen"
+        component={LostFoundWriteScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

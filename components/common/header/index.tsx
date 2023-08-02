@@ -4,7 +4,7 @@ import CSText from '../text'
 import { colors } from '../../../App/config/globalStyle'
 import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   leftIcon?: ReactNode
   leftIconPress?: () => void
   title?: string
