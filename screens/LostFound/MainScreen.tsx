@@ -1,23 +1,17 @@
 import React from 'react'
 import CSScreen from '../../components/common/screen'
 import CSHeader from '../../components/common/header'
-<<<<<<< HEAD
-import MenuIcon from '../../App/assets/svg/ic_menu.svg'
-import BellIcon from '../../App/assets/svg/ic_bell.svg'
-import { colors } from '../../App/config/globalStyle'
-import { useNavigation } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { MainStackScreenList } from '../../lib/types/navigations'
-=======
 import styled from '@emotion/native'
 import { WithLocalSvg } from 'react-native-svg'
 import { colors, icons } from '../../App/config/globalStyle'
 import CustomSwitch from '../../components/LostFound/CustomSwitch'
-import LostPostList from './LostPostList'
+import MenuIcon from '../../App/assets/svg/ic_menu.svg'
+import BellIcon from '../../App/assets/svg/ic_bell.svg'
 import Navbar from '../../components/LostFound/Navbar'
 import LostFoundComplete from '../../components/LostFound/LostFoundComplete'
->>>>>>> cb8c55641c3ea2a28ca15e7570111ddc6db046a4
-
+import { useNavigation } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { MainStackScreenList } from '../../lib/types/navigations'
 
 const LostFoundMainScreen = () => {
   const navigation = useNavigation<StackNavigationProp<MainStackScreenList>>()
@@ -36,8 +30,6 @@ const LostFoundMainScreen = () => {
         rightIconPress={handleAlarmClick}
         border
       />
-<<<<<<< HEAD
-=======
       {/*  습득물 조회 / 분실물 찾기 */}
       <SwitchButtonWrapper>
         <SwitchButton>
@@ -64,15 +56,12 @@ const LostFoundMainScreen = () => {
       </ToggleButtonWrapper>
 
       {/* 유실물 리스트 보여주기 */}
-      {lostPosts && <LostPostList posts={lostPosts} />}
->>>>>>> cb8c55641c3ea2a28ca15e7570111ddc6db046a4
+      {/* {lostPosts && <LostPostList posts={lostPosts} />} */}
     </CSScreen>
   )
 }
 
 export default LostFoundMainScreen
-<<<<<<< HEAD
-=======
 
 const Icon = styled(WithLocalSvg)`
   width: 24;
@@ -115,4 +104,3 @@ const LostFoundWrapper = styled.View`
   height: 29px;
   background: blue;
 `
->>>>>>> cb8c55641c3ea2a28ca15e7570111ddc6db046a4
