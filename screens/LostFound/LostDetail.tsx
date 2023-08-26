@@ -11,6 +11,7 @@ import CSText from '../../components/common/text'
 import { SCREEN_WIDTH } from '../../lib/public/constants'
 import { MainStackScreenList } from '../../lib/types/navigations'
 import { getElapsedTime } from '../../lib/utils/global'
+import { WithLocalSvg } from 'react-native-svg'
 
 const TEMP_LOST_DETAIL_DATA = {
   images: [

@@ -19,7 +19,7 @@ const MainStack = ({
   return (
     <Stack.Navigator
       initialRouteName="TabStack"
-       screenOptions={({ navigation: nav }) => getStackScreenOptions(nav)}>
+      screenOptions={({ navigation: nav }) => getStackScreenOptions(nav)}>
       <Stack.Screen name="TabStack" component={TabStack} />
       <Stack.Screen
         name="LostFoundWriteScreen"
@@ -29,7 +29,7 @@ const MainStack = ({
       <Stack.Screen
         name="LostDetail"
         component={LostDetail}
-        options={{ title: '' }}
+        options={{  title: '' ,headerShown: false }}
       />
     </Stack.Navigator>
   )
