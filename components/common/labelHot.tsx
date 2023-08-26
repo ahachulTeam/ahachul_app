@@ -2,7 +2,7 @@ import styled from '@emotion/native'
 import React from 'react'
 import CSText from './text'
 
-type Props = {
+interface Props {
   bgcolor?: string
   text: string
 }

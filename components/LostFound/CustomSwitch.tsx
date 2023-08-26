@@ -8,7 +8,7 @@ import {
 import { colors } from '../../App/config/globalStyle'
 import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   text?: string
   textSize?: number
   textWeight?: '300' | '400' | '500' | '600' | '700' | '800'

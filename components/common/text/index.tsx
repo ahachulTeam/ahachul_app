@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react'
-import { Text, TextProps } from 'react-native'
+import { TextProps } from 'react-native'
 import { colors, fonts } from '../../../App/config/globalStyle'
+import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   size?: number
   weight?: '300' | '400' | '500' | '600' | '700' | '800'
   color?: string
@@ -32,16 +33,12 @@ const CSText = ({
   }
   return (
     <Text
-      style={[
-        {
-          fontSize: size,
-          fontFamily: fontFamily[weight],
-          color: color,
-          letterSpacing: letterSpacing,
-          lineHeight: lineHeight,
-        },
-        style,
-      ]}
+      size={size}
+      color={color}
+      style={style}
+      fontFamily={fontFamily[weight]}
+      lineHeight={lineHeight}
+      letterSpacing={letterSpacing}
       {...props}>
       {children && children}
     </Text>
@@ -49,3 +46,17 @@ const CSText = ({
 }
 
 export default CSText
+
+const Text = styled.Text<{
+  size: number
+  fontFamily: string
+  color: string
+  letterSpacing: number
+  lineHeight: number
+}>`
+  font-size: ${({ size }) => `${size}px`};
+  font-family: ${({ fontFamily }) => `${fontFamily}`};
+  color: ${({ color }) => `${color}`};
+  letter-spacing: ${({ letterSpacing }) => `${letterSpacing}px`};
+  line-height: ${({ lineHeight }) => `${lineHeight}px`};
+`

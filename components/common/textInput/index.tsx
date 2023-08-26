@@ -1,20 +1,15 @@
 import React from 'react'
-import {
-  KeyboardTypeOptions,
-  StyleSheet,
-  TextInput,
-  TextInputProps,
-} from 'react-native'
+import { KeyboardTypeOptions, TextInputProps } from 'react-native'
 import { colors, fonts } from '../../../App/config/globalStyle'
+import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   size?: number
   weight?: string
   color?: string
-  lineHeight?: number | null
+  lineHeight?: number
   letterSpacing?: number
   style?: object
-  inputRef?: React.LegacyRef<TextInput> | undefined
   flex?: number
   keyboardType?: KeyboardTypeOptions
   multiline?: boolean
@@ -22,13 +17,12 @@ type Props = {
 
 const CSTextInput = ({
   size = 15,
-  weight = 'regular',
+  weight = '400',
   color = colors.black,
-  lineHeight,
-  letterSpacing = -20,
+  lineHeight = 0,
+  letterSpacing = 0,
   placeholder,
   placeholderTextColor = colors.gray30,
-  inputRef,
   flex = 1,
   style,
   onFocus,
@@ -44,21 +38,16 @@ const CSTextInput = ({
   }
 
   return (
-    <TextInput
+    <TextInputView
+      size={size}
+      fontFamily={fontFamily[weight]}
+      color={color}
+      letterSpacing={letterSpacing}
+      lineHeight={lineHeight}
       placeholder={placeholder}
       placeholderTextColor={placeholderTextColor}
       selectionColor={color}
-      style={[
-        {
-          flex: 1,
-          fontSize: size,
-          fontFamily: fontFamily[weight],
-          color: color,
-        },
-        styles.textInput,
-        style,
-      ]}
-      ref={inputRef}
+      style={style}
       autoCorrect={false}
       autoCapitalize={'none'}
       onFocus={onFocus}
@@ -71,10 +60,19 @@ const CSTextInput = ({
 
 export default CSTextInput
 
-const styles = StyleSheet.create({
-  textInput: {
-    includeFontPadding: false, // Android
-    padding: 0, // Android
-    paddingTop: 0, // iOS
-  },
-})
+const TextInputView = styled.TextInput<{
+  size: number
+  fontFamily: string
+  color: string
+  letterSpacing?: number
+  lineHeight?: number
+}>`
+  flex: 1;
+  font-size: ${({ size }) => `${size}px`};
+  font-family: ${({ fontFamily }) => `${fontFamily}`};
+  color: ${({ color }) => `${color}`};
+  letter-spacing: ${({ letterSpacing }) => `${letterSpacing}px`};
+  line-height: ${({ lineHeight }) => `${lineHeight}px`};
+  padding: 0;
+  padding-top: 0;
+`

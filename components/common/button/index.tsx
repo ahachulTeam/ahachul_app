@@ -1,13 +1,10 @@
 import React from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native'
+import { TouchableOpacityProps } from 'react-native'
 import CSText from '../text'
 import { colors } from '../../../App/config/globalStyle'
+import styled from '@emotion/native'
 
-type Props = {
+interface Props {
   text?: string
   textSize?: number
   textWeight?: '300' | '400' | '500' | '600' | '700' | '800'
@@ -15,7 +12,6 @@ type Props = {
   bgColor?: string
   height?: number
   style?: object
-  disabledStyle?: object | null
   borderRadius?: number
 }
 
@@ -28,27 +24,20 @@ const CSButton = ({
   onPress,
   height = 48,
   disabled = false,
-  disabledStyle = styles.disabled,
   style,
   borderRadius = 0,
   children,
   ...props
 }: Props & TouchableOpacityProps) => {
   return (
-    <TouchableOpacity
+    <Container
       activeOpacity={0.7}
       onPress={onPress}
-      style={[
-        styles.container,
-        {
-          backgroundColor: bgColor,
-          height: height,
-          borderRadius: borderRadius,
-        },
-        disabled && disabledStyle,
-        style && style,
-      ]}
+      bgColor={bgColor}
+      height={height}
+      borderRadius={borderRadius}
       disabled={disabled}
+      style={style}
       {...props}>
       {text && (
         <CSText
@@ -59,18 +48,23 @@ const CSButton = ({
         </CSText>
       )}
       {children}
-    </TouchableOpacity>
+    </Container>
   )
 }
 
 export default CSButton
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  disabled: {
-    backgroundColor: colors.gray20,
-  },
-})
+const Container = styled.TouchableOpacity<{
+  bgColor?: string
+  height?: number
+  borderRadius?: number
+  disabledStyle?: boolean
+}>`
+  background-color: ${({ bgColor, disabled }) =>
+    disabled ? `${colors.gray20}` : `${bgColor}`};
+  height: ${({ height }) => `${height}px`};
+  border-radius: ${({ borderRadius }) => `${borderRadius}px`};
+
+  align-items: center;
+  justify-content: center;
+`
