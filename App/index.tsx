@@ -70,7 +70,7 @@ const App = () => {
       } else if (+notiCount > 0) {
         const channelId = await notifee.createChannel({
           id: remoteMessage.messageId as string,
-          name: 'bodycodi manager',
+          name: 'ahhachul.today.app',
         })
         await notifee.displayNotification({
           title: remoteMessage?.notification?.title,
