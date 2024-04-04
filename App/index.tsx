@@ -15,6 +15,7 @@ import { request, PERMISSIONS } from 'react-native-permissions'
 import NetInfo from '@react-native-community/netinfo'
 import Offline from './screens/Offline'
 
+// 앱이 최초 실행될 때 푸시메세지 권한 확인
 async function requestUserPermission() {
   const authStatus = await messaging().requestPermission()
   const enabled =
@@ -92,8 +93,8 @@ const App = () => {
         webviewRef.current?.postMessage(
           JSON.stringify({
             name: 'notification',
-            isNavi: false,
-            target: '',
+            target: remoteMessage?.data?.target,
+            isNavi: true,
             notiCount: notiCount,
           }),
         )
@@ -189,6 +190,7 @@ const App = () => {
         onShouldStartLoadWithRequest={request => {
           if (
             request.url.includes('youtube.com/watch') ||
+            request.url.includes('youtube.com/shorts') ||
             request.url.includes('pf.kakao.com')
           ) {
             Linking.openURL(request.url)
