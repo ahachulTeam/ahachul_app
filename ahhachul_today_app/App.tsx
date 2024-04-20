@@ -75,12 +75,14 @@ function App(): JSX.Element {
   // }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
+      <SafeAreaView style={styles.statusBar} />
       <WebView
+        style={styles.container}
         bounces={false}
         ref={webviewRef}
         source={{uri: URI}}
-        allowsFullscreenVideo={true}
+        allowsFullscreenVideo
         onMessage={getDataFromWeb}
         onContentProcessDidTerminate={() => webviewRef.current?.reload()} // https://github.com/react-native-webview/react-native-webview/issues/2298
         onShouldStartLoadWithRequest={request => {
@@ -94,14 +96,16 @@ function App(): JSX.Element {
           return true;
         }}
       />
-    </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  statusBar: {
+    backgroundColor: '#141517',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#141517',
   },
 });
 
