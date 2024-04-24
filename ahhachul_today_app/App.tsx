@@ -1,12 +1,22 @@
-import React, {useEffect, useRef} from 'react';
-import {SafeAreaView, StyleSheet, Linking, BackHandler} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Linking,
+  BackHandler,
+  Platform,
+} from 'react-native';
 import WebView, {WebViewMessageEvent} from 'react-native-webview';
-// import {getDeviceId, getModel, getUniqueId} from 'react-native-device-info';
+import {getDeviceId, getModel, getUniqueId} from 'react-native-device-info';
+import NetInfo from '@react-native-community/netinfo';
+import Offline from './screens/Offline';
 
 const URI = 'https://ahhachul-com.vercel.app';
 
 function App(): JSX.Element {
   const webviewRef = useRef<WebView | null>(null);
+
+  const [isOffline, setIsOffline] = useState(false);
 
   const backAction = () => {
     webviewRef.current?.postMessage(
@@ -18,6 +28,14 @@ function App(): JSX.Element {
   };
 
   useEffect(() => {
+    NetInfo.fetch().then(state => {
+      if (!state.isConnected) {
+        setIsOffline(true);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () =>
@@ -26,15 +44,15 @@ function App(): JSX.Element {
 
   const getDataFromWeb = async (event: WebViewMessageEvent) => {
     if (event.nativeEvent.data === 'getDeviceInfo') {
-      // const deviceId = Platform.OS === 'android' ? getModel() : getDeviceId(); // https://gist.github.com/adamawolf/3048717
-      // const uniqueId = getUniqueId();
+      const deviceId = Platform.OS === 'android' ? getModel() : getDeviceId(); // https://gist.github.com/adamawolf/3048717
+      const uniqueId = getUniqueId();
       // const fcmToken = await messaging().getToken();
       webviewRef.current?.postMessage(
         JSON.stringify({
           name: 'deviceInfo',
           // token: fcmToken,
-          // deviceId: deviceId,
-          // uniqueId: uniqueId,
+          deviceId: deviceId,
+          uniqueId: uniqueId,
         }),
       );
       return;
@@ -55,14 +73,14 @@ function App(): JSX.Element {
       return;
     }
     if (event.nativeEvent.data === 'getNetworkType') {
-      // NetInfo.fetch().then(state => {
-      //   webviewRef.current?.postMessage(
-      //     JSON.stringify({
-      //       name: 'networkType',
-      //       type: state.type,
-      //     }),
-      //   );
-      // });
+      NetInfo.fetch().then(state => {
+        webviewRef.current?.postMessage(
+          JSON.stringify({
+            name: 'networkType',
+            type: state.type,
+          }),
+        );
+      });
     }
     if (event.nativeEvent.data === 'exitApp') {
       BackHandler.exitApp();
@@ -70,9 +88,9 @@ function App(): JSX.Element {
     }
   };
 
-  // if (isOffline) {
-  //   return <Offline />;
-  // }
+  if (isOffline) {
+    return <Offline />;
+  }
 
   return (
     <>
