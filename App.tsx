@@ -11,7 +11,7 @@ import {getDeviceId, getModel, getUniqueId} from 'react-native-device-info';
 import NetInfo from '@react-native-community/netinfo';
 import Offline from './screens/Offline';
 
-const URI = 'https://ahhachul-com.vercel.app';
+const URI = 'https://app-dev.ahhachul.com/';
 
 function App(): JSX.Element {
   const webviewRef = useRef<WebView | null>(null);
@@ -101,6 +101,7 @@ function App(): JSX.Element {
         ref={webviewRef}
         source={{uri: URI}}
         allowsFullscreenVideo
+        hideKeyboardAccessoryView
         onMessage={getDataFromWeb}
         onContentProcessDidTerminate={() => webviewRef.current?.reload()} // https://github.com/react-native-webview/react-native-webview/issues/2298
         onShouldStartLoadWithRequest={request => {
