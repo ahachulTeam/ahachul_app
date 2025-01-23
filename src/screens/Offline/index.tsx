@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, SafeAreaView, View, Image, StyleSheet} from 'react-native';
 
-function Offline() {
+export function Offline() {
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -47,5 +47,3 @@ const styles = StyleSheet.create({
     color: '#727B8E',
   },
 });
-
-export default Offline;

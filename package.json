@@ -1,5 +1,5 @@
 {
-  "name": "ahhachul_today_app",
+  "name": "ahhachul.today.app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,13 +10,21 @@
     "test": "jest",
     "clean-install": "rm -rf node_modules && npm install",
     "ios-clean": "cd ios && rm -rf Pods Podfile.lock && rm -rf ~/Library/Developer/Xcode/DerivgedData && pod deintegrate && pod setup",
-    "android-clean": "cd android && ./gradlew clean"
+    "android-clean": "cd android && ./gradlew clean",
+    "aab:android": "npm ci && cd android && ./gradlew bundleRelease && cd .. && open android/app/build/outputs/bundle/release",
+    "apk:android": "npm ci && cd android && ./gradlew assembleRelease && cd .. && open android/app/build/outputs/apk/release",
+    "bump-patch": "npm version patch --no-git-tag-version && cd ios && bundle exec fastlane bump",
+    "bump-minor": "npm version minor --no-git-tag-version && cd ios && bundle exec fastlane bump",
+    "bump-major": "npm version major --no-git-tag-version && cd ios && bundle exec fastlane bump",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
     "@react-native-community/netinfo": "^9.5.0",
     "react": "18.2.0",
     "react-native": "0.72.7",
     "react-native-device-info": "^8.7.1",
+    "react-native-haptic-feedback": "^2.3.3",
+    "react-native-share": "^12.0.3",
     "react-native-webview": "^13.8.6"
   },
   "devDependencies": {
