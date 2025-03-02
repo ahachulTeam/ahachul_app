@@ -1,6 +1,11 @@
 #import "AppDelegate.h"
+#import "RNSplashScreen.h"
 
 #import <React/RCTBundleURLProvider.h>
+
+#import <Firebase.h>
+#import <UserNotifications/UserNotifications.h>
+#import <RNCPushNotificationIOS.h>
 
 @implementation AppDelegate
 
@@ -11,7 +16,15 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+  center.delegate = self;
+  BOOL ret = [super application:application didFinishLaunchingWithOptions:launchOptions];
+  if (ret == YES)
+  { 
+    [RNSplashScreen show];
+  }
+  return ret;
+  // return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

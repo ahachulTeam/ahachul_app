@@ -4,8 +4,11 @@ import {useWebView} from './hooks/useWebView';
 import {WebViewContainer} from './components/WebViewContainer';
 import {Offline} from './screens/Offline';
 import {STYLES} from './constants/config';
+import {usePermission} from './hooks/usePermission';
+import PermissionDialog from './components/PermissionModal';
 
 function App(): JSX.Element {
+  const {visible, handlePermissionConfirm} = usePermission();
   const {
     webviewRef,
     isOffline,
@@ -21,6 +24,7 @@ function App(): JSX.Element {
   return (
     <>
       <SafeAreaView style={styles.statusBar} />
+      <PermissionDialog visible={visible} onConfirm={handlePermissionConfirm} />
       <WebViewContainer
         webviewRef={webviewRef}
         onMessage={messageHandler}

@@ -19,12 +19,20 @@
     "typecheck": "tsc --project ./tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.24.0",
     "@react-native-community/netinfo": "^9.5.0",
+    "@react-native-community/push-notification-ios": "^1.11.0",
+    "@react-native-firebase/analytics": "^21.11.0",
+    "@react-native-firebase/app": "^21.11.0",
+    "@react-native-firebase/messaging": "^21.11.0",
     "react": "18.2.0",
     "react-native": "0.72.7",
     "react-native-device-info": "^8.7.1",
     "react-native-haptic-feedback": "^2.3.3",
+    "react-native-permissions": "^5.2.5",
+    "react-native-push-notification": "^8.1.1",
     "react-native-share": "^12.0.3",
+    "react-native-splash-screen": "^3.3.0",
     "react-native-webview": "^13.8.6"
   },
   "devDependencies": {
@@ -35,6 +43,7 @@
     "@react-native/metro-config": "^0.72.11",
     "@tsconfig/react-native": "^3.0.0",
     "@types/react": "^18.0.24",
+    "@types/react-native-push-notification": "^8.1.4",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
     "eslint": "^8.19.0",

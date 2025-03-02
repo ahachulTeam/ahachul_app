@@ -4,6 +4,9 @@ import type WebView from 'react-native-webview';
 import NetInfo from '@react-native-community/netinfo';
 import {createMessageHandler} from '../utils/messageHandler';
 import {useBackHandler} from './useBackHandler';
+import SplashScreen from 'react-native-splash-screen';
+
+const SPLASH_SCREEN_DELAY = 1000;
 
 export const useWebView = () => {
   const webviewRef = useRef<WebView | null>(null);
@@ -34,6 +37,14 @@ export const useWebView = () => {
         setIsOffline(true);
       }
     });
+
+    const splashTimer = setTimeout(() => {
+      SplashScreen.hide();
+    }, SPLASH_SCREEN_DELAY);
+
+    return () => {
+      clearTimeout(splashTimer);
+    };
   }, []);
 
   return {
