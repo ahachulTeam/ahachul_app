@@ -19,6 +19,7 @@ export interface PhoneCall {
 export interface TextMessage {
   name: 'sendTextMessage';
   number: string;
+  message?: string;
 }
 
 export interface ExternalLink {

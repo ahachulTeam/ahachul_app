@@ -1,4 +1,4 @@
-import {Linking, BackHandler} from 'react-native';
+import {Linking, BackHandler, Platform} from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import type {WebView, WebViewMessageEvent} from 'react-native-webview';
 import HapticFeedback from 'react-native-haptic-feedback';
@@ -47,7 +47,25 @@ export const createMessageHandler = (webviewRef: React.RefObject<WebView>) => {
           await Linking.openURL(`tel:${message.number}`);
           break;
         case 'sendTextMessage':
-          await Linking.openURL(`sms:${message.number}`);
+          try {
+            const messageBody = message.message
+              ? decodeURIComponent(message.message)
+              : '';
+            // iOS와 Android를 구분하여 처리
+            if (Platform.OS === 'ios') {
+              // iOS는 &로 구분
+              await Linking.openURL(
+                `sms:${message.number}&body=${messageBody}`,
+              );
+            } else {
+              // Android는 ?로 구분
+              await Linking.openURL(
+                `sms:${message.number}?body=${messageBody}`,
+              );
+            }
+          } catch (error) {
+            console.error('Error opening SMS:', error);
+          }
           break;
         case 'openExternalLink':
           await Linking.openURL(message.link);
