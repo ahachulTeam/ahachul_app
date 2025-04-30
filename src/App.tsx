@@ -8,7 +8,6 @@ import {usePermission} from './hooks/usePermission';
 import PermissionDialog from './components/PermissionModal';
 
 function App(): JSX.Element {
-  const {visible, handlePermissionConfirm} = usePermission();
   const {
     webviewRef,
     isOffline,
@@ -16,6 +15,7 @@ function App(): JSX.Element {
     handleLoadRequest,
     handleProcessTerminate,
   } = useWebView();
+  const {visible, handlePermissionConfirm} = usePermission();
 
   if (isOffline) {
     return <Offline />;

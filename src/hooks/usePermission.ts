@@ -1,24 +1,24 @@
 import {Platform} from 'react-native';
 import {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import messaging from '@react-native-firebase/messaging';
+// import messaging from '@react-native-firebase/messaging';
 import {request, PERMISSIONS} from 'react-native-permissions';
 
-const FIRST_LAUNCH_KEY = 'AHHACHUL_APP_FIRST_LAUNCH_KEY';
+// async function requestUserPermission() {
+//   const authStatus = await messaging().requestPermission();
+//   const enabled =
+//     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+//     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
-async function requestUserPermission() {
-  const authStatus = await messaging().requestPermission();
-  const enabled =
-    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+//   if (enabled) {
+//     console.log('Authorization status:', authStatus);
+//   }
+// }
 
-  if (enabled) {
-    console.log('Authorization status:', authStatus);
-  }
-}
+const FIRST_LAUNCH_KEY = 'AHHACHUL_FIRST_LAUNCH_KEY';
 
 export const usePermission = () => {
-  const [showPermissionModal, setShowPermissionModal] = useState(false);
+  const [visible, setShowPermissionModal] = useState(false);
 
   const checkFirstLaunch = async () => {
     try {
@@ -36,7 +36,7 @@ export const usePermission = () => {
 
   const handlePermissionConfirm = async () => {
     setShowPermissionModal(false);
-    await requestUserPermission();
+    // await requestUserPermission();
 
     if (Platform.OS === 'ios') {
       await request(PERMISSIONS.IOS.CAMERA);
@@ -60,7 +60,7 @@ export const usePermission = () => {
   }, []);
 
   return {
-    visible: showPermissionModal,
+    visible,
     handlePermissionConfirm,
   };
 };

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {
   View,
   Text,
@@ -123,7 +123,7 @@ const PermissionDialog = ({visible, onConfirm}: Props) => {
         style={[styles.modalView, {transform: [{translateY: slideAnim}]}]}>
         <View style={styles.header}>
           <Text style={styles.title}>
-            아하철 앱 서비스 이용을 위해{'\n'}아래 권한을 허용해주세요.
+            아하철 서비스 이용을 위해{'\n'}아래 권한을 허용해주세요.
           </Text>
           <Pressable style={styles.closeButton} onPress={onConfirm}>
             <Image
@@ -193,12 +193,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 22,
+    marginBottom: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: '700',
-    lineHeight: 28,
+    lineHeight: 26,
     flex: 1,
     color: '#202020',
   },
@@ -208,30 +208,30 @@ const styles = StyleSheet.create({
   permissionList: {
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 20,
-    paddingBottom: 14,
-    marginBottom: 16,
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginBottom: 12,
     borderRadius: 8,
     backgroundColor: '#EEF4FF',
   },
   permissionItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 7,
+    paddingBottom: 7,
     borderRadius: 8,
-    marginBottom: 6,
+    marginBottom: 5,
   },
   iconContainer: {
-    marginRight: 16,
+    marginRight: 15,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
-    top: -2.3,
+    top: -2.5,
   },
   image: {
-    width: 24,
-    height: 24,
+    width: 25,
+    height: 25,
     resizeMode: 'cover',
   },
   textContainer: {
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   permissionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    marginBottom: 5,
+    marginBottom: 4,
     color: '#363E52',
   },
   optional: {
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     color: '#949DB2',
     textAlign: 'center',
     lineHeight: 20,
-    marginBottom: 24,
+    marginBottom: 16,
   },
   confirmButton: {
     backgroundColor: '#004FEC',

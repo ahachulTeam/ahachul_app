@@ -1,7 +1,7 @@
 import type React from 'react';
-import {StyleSheet} from 'react-native';
+import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import WebView, {type WebViewMessageEvent} from 'react-native-webview';
-import {URI, STYLES, APP_AGENT} from '../constants/config';
+import {uri, userAgent, STYLES} from '../constants/config';
 
 interface WebViewContainerProps {
   webviewRef: React.RefObject<WebView>;
@@ -18,20 +18,36 @@ export const WebViewContainer: React.FC<WebViewContainerProps> = ({
 }) => {
   return (
     <WebView
-      style={styles.container}
-      bounces={false}
+      source={{uri}}
       ref={webviewRef}
-      source={{uri: URI}}
-      userAgent={APP_AGENT}
-      allowsFullscreenVideo
-      hideKeyboardAccessoryView
+      userAgent={userAgent}
       onMessage={onMessage}
       onContentProcessDidTerminate={onContentProcessDidTerminate}
       onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+      style={styles.container}
+      bounces={false}
+      hideKeyboardAccessoryView
+      allowsFullscreenVideo
+      startInLoadingState
+      renderLoading={() => (
+        <View style={styles.loadingSpinner}>
+          <ActivityIndicator size="small" color="#d1d1d1" />
+        </View>
+      )}
     />
   );
 };
 
 const styles = StyleSheet.create({
   container: STYLES.CONTAINER,
+  loadingSpinner: {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    marginTop: -84,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+  },
 });
